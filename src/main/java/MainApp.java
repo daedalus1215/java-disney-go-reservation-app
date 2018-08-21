@@ -1,3 +1,5 @@
+import config.UserCredentialConfig;
+
 import javax.mail.*;
 import javax.mail.internet.*;
 import java.util.*;
@@ -6,15 +8,12 @@ public class MainApp {
 
 
     public static void main(String[] args) {
-        String from = USERNAME;
-        String pass = PASSWORD;
-        String[] to = {RECIPIENT};
-        String subject = "Subject TESTING";
-        String body = "body TESTING";
-        sendFromGMail(from, pass, to, subject, body);
+        String subject = "testing now";
+        String body = "testing body now";
+        sendFromGMail(UserCredentialConfig.USERNAME, UserCredentialConfig.PASSWORD, UserCredentialConfig.RECIPIENT, subject, body);
     }
 
-    private static void sendFromGMail(String from, String pass, String[] to, String subject, String body) {
+    private static void sendFromGMail(String from, String pass, String to, String subject, String body) {
         Properties props = System.getProperties();
         String host = "smtp.gmail.com";
         props.put("mail.smtp.starttls.enable", "true");
@@ -30,15 +29,11 @@ public class MainApp {
         try {
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
-            InternetAddress[] toAddress = new InternetAddress[to.length];
+            InternetAddress[] toAddress = new InternetAddress[1];
 
-            for( int i = 0; i < to.length; i++) {
-                toAddress[i] = new InternetAddress(to[i]);
-            }
+            toAddress[0] = new InternetAddress(to);
 
-            for( int i = 0; i < toAddress.length; i++) {
-                message.addRecipient(Message.RecipientType.TO, toAddress[i]);
-            }
+            message.addRecipient(Message.RecipientType.TO, toAddress[0]);
 
             message.setSubject(subject);
             message.setText(body);
