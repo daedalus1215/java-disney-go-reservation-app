@@ -1,3 +1,4 @@
+import Authentication.SmtpAuthenticator;
 import config.UserCredentialConfig;
 
 import javax.mail.*;
@@ -53,19 +54,6 @@ public class MainApp {
     }
 
 
-    public static class SmtpAuthenticator extends Authenticator {
-        private String username;
-        private String password;
 
-        public SmtpAuthenticator(String username, String password) {
-            this.username = username;
-            this.password = password;
-        }
-
-        @Override
-        public PasswordAuthentication getPasswordAuthentication() {
-            return new PasswordAuthentication(username, password);
-        }
-    }
 
 }
