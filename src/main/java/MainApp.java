@@ -22,27 +22,32 @@ public class MainApp {
 
 
             WebClient webClient = new WebClient();
+            System.out.println("Connecting to the dining resort");
             HtmlPage page = webClient.getPage("https://disneyworld.disney.go.com/dining/polynesian-resort/ohana/");
+            System.out.println("Connected");
 
-
+            System.out.println("Grabbing first field");
             // Date Calendar Input field
-            HtmlInput dateCalendarField = page.getElementByName("searchDate");
+            HtmlInput dateCalendarField = page.getFirstByXPath("//*[@id=\"diningAvailabilityForm-searchDate\"]");
             dateCalendarField.setValueAttribute("09/18/2018");
+            System.out.println("set the first field " + dateCalendarField.getTextContent());
 
 
+            System.out.println("Grabbing second field");
             // Time Drop down field
-            HtmlSelect timeSelectField = page.getElementByName("searchTime");
-            HtmlOption option = timeSelectField.getOptionByValue("Dinner");
+            HtmlSelect timeSelectField = page.getFirstByXPath("//*[@id=\"diningAvailabilityForm-searchTime\"]");
+            HtmlOption option = timeSelectField.getOptionByValue("80000714");
             timeSelectField.setSelectedAttribute(option, true);
+            System.out.println("set the second field " + option.getText());
 
 
             // Party Size Drop down field
-            HtmlSelect partySizeSelectField = page.getElementByName("partySize");
+            HtmlSelect partySizeSelectField = page.getFirstByXPath("//*[@id=\"partySize\"]");
             HtmlOption partySizeOption = partySizeSelectField.getOptionByValue("4");
             partySizeSelectField.setSelectedAttribute(partySizeOption, true);
 
-            HtmlSubmitInput findTableButton =
-                    page.getElementByName("findTableButton"); // sometimes it's "btnK"
+            HtmlButton findTableButton =
+                    page.getElementByName("findTableButton");
             page=findTableButton.click();
 
             HtmlDivision resultStatsDiv =
