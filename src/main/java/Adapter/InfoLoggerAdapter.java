@@ -1,15 +1,15 @@
-package Logger;
+package Adapter;
 
 import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-public class InfoLogger {
+public class InfoLoggerAdapter {
     private Logger logger;
     private FileHandler fileHandler;
 
-    public InfoLogger() {
+    public InfoLoggerAdapter() {
         logger = Logger.getLogger("InfoLogging");
 
         try {
