@@ -1,4 +1,5 @@
 import Authentication.SmtpAuthenticator;
+import Logger.InfoLogger;
 import config.UserCredentialConfig;
 
 import javax.mail.*;
@@ -7,14 +8,14 @@ import java.util.*;
 
 public class MainApp {
 
-
     public static void main(String[] args) {
         String subject = "testing now";
         String body = "testing body now";
-        sendFromGMail(UserCredentialConfig.USERNAME, UserCredentialConfig.PASSWORD, UserCredentialConfig.RECIPIENT, subject, body);
+        InfoLogger logger = new InfoLogger();
+        sendFromGMail(logger, UserCredentialConfig.USERNAME, UserCredentialConfig.PASSWORD, UserCredentialConfig.RECIPIENT, subject, body);
     }
 
-    private static void sendFromGMail(String from, String pass, String to, String subject, String body) {
+    private static void sendFromGMail(InfoLogger logger, String from, String pass, String to, String subject, String body) {
         Properties props = System.getProperties();
         String host = "smtp.gmail.com";
         props.put("mail.smtp.starttls.enable", "true");
@@ -26,6 +27,8 @@ public class MainApp {
 
         SmtpAuthenticator authenticator = new SmtpAuthenticator(from, pass);
         Session session = Session.getDefaultInstance(props, authenticator);
+
+
 
         try {
             MimeMessage message = new MimeMessage(session);
@@ -44,13 +47,17 @@ public class MainApp {
             transport.close();
 
         } catch (AddressException ae) {
+            logger.info("Address Exception thrown: " + ae.getMessage());
             ae.printStackTrace();
         } catch (MessagingException me) {
+            logger.info("Message Exception thrown: " + me.getMessage());
             me.printStackTrace();
         } catch (Exception e) {
+            logger.info("Exception thrown: " + e.getMessage());
             e.printStackTrace();
         }
-        System.out.println("worked?");
+
+        logger.info("Worked!");
     }
 
 
