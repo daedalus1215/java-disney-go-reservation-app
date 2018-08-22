@@ -1,7 +1,5 @@
 package Adapter;
 
-import Authentication.SmtpAuthenticator;
-
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -33,7 +31,7 @@ public class MailerAdapter {
         props.put("mail.smtp.port", "587");
         props.put("mail.smtp.auth", "true");
 
-        SmtpAuthenticator authenticator = new SmtpAuthenticator(from, pass);
+        SmtpAdapter authenticator = new SmtpAdapter(from, pass);
         session = Session.getDefaultInstance(props, authenticator);
 
         message = new MimeMessage(session);
