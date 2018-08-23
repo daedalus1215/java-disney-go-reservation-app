@@ -26,7 +26,7 @@ public class ReservationResolver {
      * @return ArrayList<DateEntity> | null
      */
     public ArrayList<DateEntity> checkForAvailability(HtmlPage page) {
-        this.htmlElementReferrer.DINING_RESERVATION_TITLE_XPATH
+//        this.htmlElementReferrer.DINING_RESERVATION_DATE_XPATH;
         ArrayList<HtmlHeading3> d = (ArrayList) page.getByXPath("/html/body/div[1]/div[2]/div[4]/div/div/div[4]/div[2]/div[1]/h3");
         for (int i = 0; i < d.size(); i++) {
             System.out.println(d.get(i).asText());

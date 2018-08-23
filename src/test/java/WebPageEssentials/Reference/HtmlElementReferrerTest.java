@@ -16,8 +16,8 @@ class HtmlElementReferrerTest {
         assertEquals("//*[@id=\"partySize\"]", tester.PARTY_SIZE_XPATH);
         assertEquals("dineAvailSearchButton", tester.SEARCH_TIME_BTN_ID);
         assertEquals(
-                "/html/body/div[1]/div[2]/div[4]/div/div/div[4]/div[2]/span/div[2]/div[4]/div[2]/span[1]",
-                tester.DINING_RESERVATION_TITLE_XPATH
+                "//*[@id=\"time_DetailHoursDatePicker_date\"]",
+                tester.DINING_RESERVATION_DATE_XPATH
         );
     }
 }
