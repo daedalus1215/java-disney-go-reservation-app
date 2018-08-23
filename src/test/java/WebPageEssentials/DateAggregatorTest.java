@@ -41,4 +41,38 @@ class DateAggregatorTest {
         }
 
     }
+
+
+    void testGetDesiredDateEquals() {
+        DateAggregator tester = new DateAggregator(this.createMockDateEntities());
+
+        ArrayList<DateEntity> mDateEntities = tester.getDateEntities();
+
+        int expectedDay = 18;
+        for (int i = 0; i < mDateEntities.size(); i++) {
+            assertEquals("09/"+expectedDay+"/2018", tester.getDesiredDate(i));
+        }
+    }
+
+    void testGetDesiredTimeEquals() {
+        DateAggregator tester = new DateAggregator(this.createMockDateEntities());
+
+        ArrayList<DateEntity> mDateEntities = tester.getDateEntities();
+
+        int expectedDay = 18;
+        for (int i = 0; i < mDateEntities.size(); i++) {
+            assertEquals("80000714", tester.getDesiredTime(i));
+        }
+    }
+
+    void testGetDesiredPartySizeEquals() {
+        DateAggregator tester = new DateAggregator(this.createMockDateEntities());
+
+        ArrayList<DateEntity> mDateEntities = tester.getDateEntities();
+
+        int expectedDay = 18;
+        for (int i = 0; i < mDateEntities.size(); i++) {
+            assertEquals("4", tester.getDesiredPartySize(i));
+        }
+    }
 }

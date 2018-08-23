@@ -3,8 +3,7 @@ package WebPageEssentials;
 import Adapter.InfoLoggerAdapter;
 import Adapter.MailerAdapter;
 import WebPageEssentials.Reference.HtmlElementReferrer;
-import com.gargoylesoftware.htmlunit.html.HtmlHeading3;
-import com.gargoylesoftware.htmlunit.html.HtmlPage;
+import com.gargoylesoftware.htmlunit.html.*;
 
 import java.util.ArrayList;
 
@@ -26,12 +25,32 @@ public class ReservationResolver {
      * @return ArrayList<DateEntity> | null
      */
     public ArrayList<DateEntity> checkForAvailability(HtmlPage page) {
-//        this.htmlElementReferrer.DINING_RESERVATION_DATE_XPATH;
-        ArrayList<HtmlHeading3> d = (ArrayList) page.getByXPath("/html/body/div[1]/div[2]/div[4]/div/div/div[4]/div[2]/div[1]/h3");
-        for (int i = 0; i < d.size(); i++) {
-            System.out.println(d.get(i).asText());
+
+        ArrayList<DateEntity> dateEntities = dateAggregator.getDateEntities();
+        for (int i = 0; i < dateEntities.size(); i++) {
+            // set the date calendar field
+            HtmlInput dateCalendarField = page.getFirstByXPath(this.htmlElementReferrer.DATE_ID_XPATH);
+            dateCalendarField.setValueAttribute(dateAggregator.getDesiredDate(i));
+
+            // Time Drop down field
+            HtmlSelect timeSelectField = page.getFirstByXPath(this.htmlElementReferrer.TIME_ID_XPATH);
+            HtmlOption option = timeSelectField.getOptionByValue(dateAggregator.getDesiredTime(i));
+            timeSelectField.setSelectedAttribute(option, true);
+
+            // Party Size Drop down field
+            HtmlSelect partySizeSelectField = page.getFirstByXPath(this.htmlElementReferrer.PARTY_SIZE_XPATH);
+            HtmlOption partySizeOption = partySizeSelectField.getOptionByValue(dateAggregator.getDesiredPartySize(i));
+            partySizeSelectField.setSelectedAttribute(partySizeOption, true);
+
         }
+//
+//        ArrayList<HtmlHeading3> d = (ArrayList) page.getByXPath(this.htmlElementReferrer.DINING_RESERVATION_DATE_XPATH);
+//        for (int i = 0; i < d.size(); i++) {
+//            System.out.println(d.get(i).asText());
+//        }
 
         return null;
     }
+
+
 }
