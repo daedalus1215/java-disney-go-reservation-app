@@ -29,26 +29,10 @@ public class MainApp {
 
 
 
-
-            System.out.println("Grabbing first field");
-            // Date Calendar Input field
-            HtmlInput dateCalendarField = page.getFirstByXPath("//*[@id=\"diningAvailabilityForm-searchDate\"]");
-            dateCalendarField.setValueAttribute("09/18/2018");
-            System.out.println("set the first field " + dateCalendarField.asText());
+//            System.out.println("set the second field " + option.asText());
 
 
-            System.out.println("Grabbing second field");
-            // Time Drop down field
-            HtmlSelect timeSelectField = page.getFirstByXPath("//*[@id=\"diningAvailabilityForm-searchTime\"]");
-            HtmlOption option = timeSelectField.getOptionByValue("80000714");
-            timeSelectField.setSelectedAttribute(option, true);
-            System.out.println("set the second field " + option.asText());
 
-
-            // Party Size Drop down field
-            HtmlSelect partySizeSelectField = page.getFirstByXPath("//*[@id=\"partySize\"]");
-            HtmlOption partySizeOption = partySizeSelectField.getOptionByValue("4");
-            partySizeSelectField.setSelectedAttribute(partySizeOption, true);
 
             HtmlButton findTableButton = (HtmlButton) page.getElementById("dineAvailSearchButton");
             System.out.println("clicking on the submit button");

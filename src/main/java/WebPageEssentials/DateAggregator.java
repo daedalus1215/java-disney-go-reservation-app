@@ -19,4 +19,18 @@ public class DateAggregator {
     public ArrayList<DateEntity> getDateEntities() {
         return dateEntities;
     }
+
+    public String getDesiredDate(int i) {
+        return getDateEntities().get(i).date;
+    }
+
+    public String getDesiredTime(int i) {
+        return getDateEntities().get(i).time;
+    }
+
+
+    public String getDesiredPartySize(int i ) {
+        return ""+getDateEntities().get(i).seating;
+    }
+
 }
