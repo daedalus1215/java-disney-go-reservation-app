@@ -15,7 +15,7 @@ class DateAggregatorFactoryTest {
 
 
         for(int i = 19; i < 26; i++) {
-            DateEntity mDateEntity = new DateEntity("09/" + i + "/2018", "80000714", 4);
+            DateEntity mDateEntity = new DateEntity("09/" + i + "/2018", "80000714", 4, "September "+i+", 2018");
             dateEntities.add(mDateEntity);
         }
 
@@ -38,6 +38,7 @@ class DateAggregatorFactoryTest {
                             "date='" + "09/"+expectedDay+"/2018" + '\'' +
                             ", time='" + 80000714 + '\'' +
                             ", seating=" + 4 +
+                            ", displayedDate='September "+expectedDay+", 2018" + '\'' +
                             '}',
                     mDateEntities.get(i).toString());
         }
