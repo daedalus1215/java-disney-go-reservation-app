@@ -1,15 +1,13 @@
 import Adapter.InfoLoggerAdapter;
-import Adapter.MailerAdapter;
-import com.gargoylesoftware.htmlunit.WebClient;
+import WebPageEssentials.Factory.ReservationResolverFactory;
+import WebPageEssentials.Requestor.PageRequestor;
+import WebPageEssentials.Requestor.Factory.PageRequestorFactoryForOhana;
+import WebPageEssentials.ReservationResolver;
 import com.gargoylesoftware.htmlunit.html.*;
-import com.gargoylesoftware.htmlunit.javascript.host.html.HTMLElement;
 import config.UserCredentialConfig;
-import org.w3c.dom.html.HTMLDivElement;
 
-import javax.mail.*;
-import javax.mail.internet.*;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainApp {
 
@@ -23,16 +21,13 @@ public class MainApp {
     private static void sendFromGMail(InfoLoggerAdapter logger, String from, String pass, String to, String subject, String body) {
 
         try {
-            WebClient webClient = new WebClient();
-            String url = "https://disneyworld.disney.go.com/dining/polynesian-resort/ohana/";
-            System.out.println("Loading page now: " + url);
-            HtmlPage page = webClient.getPage("https://disneyworld.disney.go.com/dining/polynesian-resort/ohana/");
-            webClient.waitForBackgroundJavaScript(5 * 1000);
+            PageRequestor pageRequestor = (new PageRequestorFactoryForOhana()).createPageRequestor();
+            HtmlPage page = pageRequestor.getPage();
 
-            ArrayList<HtmlHeading3> d = (ArrayList) page.getByXPath("/html/body/div[1]/div[2]/div[4]/div/div/div[4]/div[2]/div[1]/h3");
-            for (int i = 0; i < d.size(); i++) {
-                System.out.println(d.get(i).asText());
-            }
+            ReservationResolver reservationResolver = new ReservationResolverFactory().createReservationResolver();
+
+
+
 
 
             System.out.println("Grabbing first field");
@@ -59,7 +54,7 @@ public class MainApp {
             System.out.println("clicking on the submit button");
             findTableButton.click();
 
-            webClient.waitForBackgroundJavaScript(10 * 1000);
+//            webClient.waitForBackgroundJavaScript(10 * 1000);
 
 
             String time_DetailHoursDatePicker_date = "time_DetailHoursDatePicker_date";
