@@ -24,8 +24,8 @@ class PageRequestorTest {
         PageRequestor tester = new PageRequestor(stubUrl, stubWebClient);
 
         try {
-            HtmlPage mockPage = tester.getPage();
-            assertEquals("title", mockPage.getTitleText());
+            tester.visitWebPage();
+            assertEquals("testdummy.html", tester.page.getUrl());
         } catch (IOException exception) {
 
         }
