@@ -22,53 +22,17 @@ public class MainApp {
 
         try {
             PageRequestor pageRequestor = (new PageRequestorFactoryForOhana()).createPageRequestor();
-            HtmlPage page = pageRequestor.getPage();
+
+            pageRequestor.visitWebPage();
 
             ReservationResolver reservationResolver = new ReservationResolverFactory().createReservationResolver();
 
+            reservationResolver.checkForAvailabilityAndEmail(pageRequestor);
 
-
-
-//            System.out.println("set the second field " + option.asText());
-
-
-
-
-            HtmlButton findTableButton = (HtmlButton) page.getElementById("dineAvailSearchButton");
-            System.out.println("clicking on the submit button");
-            findTableButton.click();
-
-//            webClient.waitForBackgroundJavaScript(10 * 1000);
-
-
-            String time_DetailHoursDatePicker_date = "time_DetailHoursDatePicker_date";
-            HtmlSpan titleNotAvailable = (HtmlSpan) page.getElementById(time_DetailHoursDatePicker_date);
-
-            System.out.println("Info title" + titleNotAvailable.asText());
-
-
-            String diningReservationInfoTitle = "/html/body/div[1]/div[2]/div[4]/div/div/div[4]/div[2]/span/div[2]/div[4]/div[2]/span[1]";
-            ArrayList<HtmlSpan> diningReservationInfoTitleDiv = (ArrayList) page.getByXPath(diningReservationInfoTitle);
-            for(int i = 0; i < diningReservationInfoTitleDiv.size(); i++) {
-                System.out.println("dining reservation info title div: " + diningReservationInfoTitleDiv.get(i).asText());
-            }
-
-            //            MailerAdapter mailer = new MailerAdapter(from, pass, to);
-//            mailer.setSubjectAndBody(subject, body);
-//            mailer.sendMessage();
-//
-//        } catch (AddressException ae) {
-//            logger.info("Address Exception thrown: " + ae.getMessage());
-//            ae.printStackTrace();
-//        } catch (MessagingException me) {
-//            logger.info("Message Exception thrown: " + me.getMessage());
-//            me.printStackTrace();
         } catch (Exception e) {
             logger.info("Exception thrown: " + e.getMessage());
             e.printStackTrace();
         }
-
-        logger.info("Finished.");
     }
 
 
