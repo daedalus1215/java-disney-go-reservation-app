@@ -58,7 +58,7 @@ public class ReservationResolver {
 
             if (diningReservationInfoTitleDiv != null) {
                 this.infoLoggerAdapter.info("Reservation potential alert: " + diningReservationInfoTitleDiv.asText());
-                this.mailerAdapter.setSubjectAndBody("Reservation potential alert: ", "checked at: " + Calendar.getInstance().getTime().toString() + ". For the day and time: " +diningReservationInfoTitleDiv.asText());
+                this.mailerAdapter.setSubjectAndBody("Reservation potential alert: ", "For the day and time: " +diningReservationInfoTitleDiv.asText());
                 this.mailerAdapter.sendMessage();
             } else {
                 this.infoLoggerAdapter.info("Current Time: " + Calendar.getInstance().getTime().toString() +
