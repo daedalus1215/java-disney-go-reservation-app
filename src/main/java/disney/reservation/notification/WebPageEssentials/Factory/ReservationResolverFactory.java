@@ -2,21 +2,22 @@ package disney.reservation.notification.WebPageEssentials.Factory;
 
 import disney.reservation.notification.Adapter.InfoLoggerAdapter;
 import disney.reservation.notification.Adapter.MailerAdapter;
-import disney.reservation.notification.WebPageEssentials.DateAggregator;
+import disney.reservation.notification.WebPageEssentials.DateEntity;
 import disney.reservation.notification.WebPageEssentials.Reference.HtmlElementReferrer;
 import disney.reservation.notification.WebPageEssentials.ReservationResolver;
 import config.UserCredentialConfig;
 
 import javax.mail.MessagingException;
+import java.util.ArrayList;
 
-public class ReservationResolverFactory {
+public class ReservationResolverFactory implements ReservationResolverFactoryInterface {
 
     public ReservationResolver createReservationResolver() throws MessagingException {
         MailerAdapter mailerAdapter = new MailerAdapter(UserCredentialConfig.USERNAME, UserCredentialConfig.PASSWORD, UserCredentialConfig.RECIPIENT);
         HtmlElementReferrer htmlElementReferrer = new HtmlElementReferrer();
-        DateAggregator dateAggregator = (new DateAggregatorFactory()).createAggregation();
+        ArrayList<DateEntity> dateEntityAggregation = (new DateEntityForSeptemberDinnerFactory()).createEntityArrayList();
         InfoLoggerAdapter infoLoggerAdapter = new InfoLoggerAdapter();
 
-        return new ReservationResolver(mailerAdapter, htmlElementReferrer, dateAggregator, infoLoggerAdapter);
+        return new ReservationResolver(mailerAdapter, htmlElementReferrer, dateEntityAggregation, infoLoggerAdapter);
     }
 }
