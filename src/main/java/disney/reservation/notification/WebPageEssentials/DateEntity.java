@@ -15,6 +15,30 @@ public class DateEntity implements DateEntityInterface {
         this.seating = seating;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getSeating() {
+        return seating;
+    }
+
+    public void setSeating(String seating) {
+        this.seating = seating;
+    }
+
     public String toString() {
         return "DateEntity{" +
                 "date='" + date + '\'' +

@@ -1,6 +1,17 @@
 package disney.reservation.notification.WebPageEssentials;
 
 public interface DateEntityInterface {
-    @Override
+    String getDate();
+
+    void setDate(String date);
+
+    String getTime();
+
+    void setTime(String time);
+
+    String getSeating();
+
+    void setSeating(String seating);
+
     String toString();
 }

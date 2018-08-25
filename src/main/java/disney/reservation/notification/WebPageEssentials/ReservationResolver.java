@@ -2,6 +2,7 @@ package disney.reservation.notification.WebPageEssentials;
 
 import disney.reservation.notification.Adapter.InfoLoggerAdapter;
 import disney.reservation.notification.Adapter.MailerAdapter;
+import disney.reservation.notification.Adapter.MailerAdapterInterface;
 import disney.reservation.notification.WebPageEssentials.Reference.HtmlElementReferrer;
 import disney.reservation.notification.WebPageEssentials.Requestor.PageRequestor;
 import com.gargoylesoftware.htmlunit.html.*;
@@ -10,12 +11,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class ReservationResolver implements ReservationResolverInterface {
-    private MailerAdapter mailerAdapter;
+    private MailerAdapterInterface mailerAdapter;
     private HtmlElementReferrer htmlElementReferrer;
-    private ArrayList<DateEntity> dateEntities;
+    private ArrayList<DateEntityInterface> dateEntities;
     private InfoLoggerAdapter infoLoggerAdapter;
 
-    public ReservationResolver(MailerAdapter mailerAdapter, HtmlElementReferrer htmlElementReferrer, ArrayList<DateEntity> dateEntities, InfoLoggerAdapter infoLoggerAdapter) {
+    public ReservationResolver(MailerAdapterInterface mailerAdapter, HtmlElementReferrer htmlElementReferrer, ArrayList<DateEntityInterface> dateEntities, InfoLoggerAdapter infoLoggerAdapter) {
         this.mailerAdapter = mailerAdapter;
         this.htmlElementReferrer = htmlElementReferrer;
         this.dateEntities = dateEntities;
@@ -30,16 +31,16 @@ public class ReservationResolver implements ReservationResolverInterface {
         for (int i = 0; i < this.dateEntities.size(); i++) {
             // set the date calendar field
             HtmlInput dateCalendarField = (HtmlInput) requestor.getElementByXPath(this.htmlElementReferrer.DATE_ID_XPATH);
-            dateCalendarField.setValueAttribute(dateEntities.get(i).date);
+            dateCalendarField.setValueAttribute(dateEntities.get(i).getDate());
 
             // Time Drop down field
             HtmlSelect timeSelectField = (HtmlSelect) requestor.getElementByXPath(this.htmlElementReferrer.TIME_ID_XPATH);
-            HtmlOption option = timeSelectField.getOptionByValue(dateEntities.get(i).time);
+            HtmlOption option = timeSelectField.getOptionByValue(dateEntities.get(i).getTime());
             timeSelectField.setSelectedAttribute(option, true);
 
             // Party Size Drop down field
             HtmlSelect partySizeSelectField = (HtmlSelect) requestor.getElementByXPath(this.htmlElementReferrer.PARTY_SIZE_XPATH);
-            HtmlOption partySizeOption = partySizeSelectField.getOptionByValue(dateEntities.get(i).seating);
+            HtmlOption partySizeOption = partySizeSelectField.getOptionByValue(dateEntities.get(i).getSeating());
             partySizeSelectField.setSelectedAttribute(partySizeOption, true);
 
             HtmlButton findTableButton = (HtmlButton) requestor.getElementById(this.htmlElementReferrer.SEARCH_TIME_BTN_ID);
@@ -58,7 +59,7 @@ public class ReservationResolver implements ReservationResolverInterface {
                 this.mailerAdapter.sendMessage();
             } else {
                 this.infoLoggerAdapter.info("Current Time: " + Calendar.getInstance().getTime().toString() +
-                        " no reservation potential for: " + dateEntities.get(i).date);
+                        " no reservation potential for: " + dateEntities.get(i).getDate());
             }
         }
     }
