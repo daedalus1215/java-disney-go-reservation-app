@@ -9,16 +9,16 @@ import com.gargoylesoftware.htmlunit.html.*;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class ReservationResolver {
+public class ReservationResolver implements ReservationResolverInterface {
     private MailerAdapter mailerAdapter;
     private HtmlElementReferrer htmlElementReferrer;
-    private DateAggregator dateAggregator;
+    private ArrayList<DateEntity> dateEntities;
     private InfoLoggerAdapter infoLoggerAdapter;
 
-    public ReservationResolver(MailerAdapter mailerAdapter, HtmlElementReferrer htmlElementReferrer, DateAggregator dateAggregator, InfoLoggerAdapter infoLoggerAdapter) {
+    public ReservationResolver(MailerAdapter mailerAdapter, HtmlElementReferrer htmlElementReferrer, ArrayList<DateEntity> dateEntities, InfoLoggerAdapter infoLoggerAdapter) {
         this.mailerAdapter = mailerAdapter;
         this.htmlElementReferrer = htmlElementReferrer;
-        this.dateAggregator = dateAggregator;
+        this.dateEntities = dateEntities;
         this.infoLoggerAdapter = infoLoggerAdapter;
     }
 
@@ -27,20 +27,19 @@ public class ReservationResolver {
      */
     public void checkForAvailabilityAndEmail(PageRequestor requestor) throws Exception {
 
-        ArrayList<DateEntity> dateEntities = dateAggregator.getDateEntities();
-        for (int i = 0; i < dateEntities.size(); i++) {
+        for (int i = 0; i < this.dateEntities.size(); i++) {
             // set the date calendar field
             HtmlInput dateCalendarField = (HtmlInput) requestor.getElementByXPath(this.htmlElementReferrer.DATE_ID_XPATH);
-            dateCalendarField.setValueAttribute(dateAggregator.getDesiredDate(i));
+            dateCalendarField.setValueAttribute(dateEntities.get(i).date);
 
             // Time Drop down field
             HtmlSelect timeSelectField = (HtmlSelect) requestor.getElementByXPath(this.htmlElementReferrer.TIME_ID_XPATH);
-            HtmlOption option = timeSelectField.getOptionByValue(dateAggregator.getDesiredTime(i));
+            HtmlOption option = timeSelectField.getOptionByValue(dateEntities.get(i).time);
             timeSelectField.setSelectedAttribute(option, true);
 
             // Party Size Drop down field
             HtmlSelect partySizeSelectField = (HtmlSelect) requestor.getElementByXPath(this.htmlElementReferrer.PARTY_SIZE_XPATH);
-            HtmlOption partySizeOption = partySizeSelectField.getOptionByValue(dateAggregator.getDesiredPartySize(i));
+            HtmlOption partySizeOption = partySizeSelectField.getOptionByValue(dateEntities.get(i).seating);
             partySizeSelectField.setSelectedAttribute(partySizeOption, true);
 
             HtmlButton findTableButton = (HtmlButton) requestor.getElementById(this.htmlElementReferrer.SEARCH_TIME_BTN_ID);
@@ -59,7 +58,7 @@ public class ReservationResolver {
                 this.mailerAdapter.sendMessage();
             } else {
                 this.infoLoggerAdapter.info("Current Time: " + Calendar.getInstance().getTime().toString() +
-                        " no reservation potential for: " + dateAggregator.getDesiredDate(i));
+                        " no reservation potential for: " + dateEntities.get(i).date);
             }
         }
     }

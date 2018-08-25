@@ -7,7 +7,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 import java.io.IOException;
 
-public class PageRequestor {
+public class PageRequestor implements PageRequestorInterface {
     private String url;
     private WebClient webClient;
     public HtmlPage page;
@@ -48,7 +48,6 @@ public class PageRequestor {
     }
 
 
-    @Override
     public String toString() {
         return "PageRequestor{" +
                 "url='" + url + '\'' +
