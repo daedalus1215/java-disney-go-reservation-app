@@ -13,8 +13,8 @@ public class DateAggregatorFactory {
     public DateAggregator createAggregation() {
         ArrayList<DateEntity> dateEntities = new ArrayList<DateEntity>();
 
-        for(int i = 13; i < 20; i++) {
-            DateEntity mDateEntity = new DateEntity("02/" + i + "/2019", "80000714", 4, "September "+i+", 2018");
+        for(int i = 19; i < 26; i++) {
+            DateEntity mDateEntity = new DateEntity("09/" + i + "/2018", "80000714", 4, "September "+i+", 2018");
             dateEntities.add(mDateEntity);
         }
 
