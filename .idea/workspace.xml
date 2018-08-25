@@ -6,14 +6,32 @@
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/WebPageEssentials/Requestor/PageRequestor.java" line="29" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/Requestor/PageRequestor.java" line="27" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29ed499a-1658-4823-8859-06895ebd9bb6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/config/UserCredentialConfig.class" afterPath="$PROJECT_DIR$/target/classes/config/UserCredentialConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/Adapter/InfoLoggerAdapter.java" afterPath="$PROJECT_DIR$/src/main/java/disney/reservation/notification/Adapter/InfoLoggerAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/Adapter/MailerAdapter.java" afterPath="$PROJECT_DIR$/src/main/java/disney/reservation/notification/Adapter/MailerAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/Adapter/SmtpAdapter.java" afterPath="$PROJECT_DIR$/src/main/java/disney/reservation/notification/Adapter/SmtpAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/MainApp.java" afterPath="$PROJECT_DIR$/src/main/java/disney/reservation/notification/Application.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/WebPageEssentials/DateAggregator.java" afterPath="$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/DateAggregator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/WebPageEssentials/DateEntity.java" afterPath="$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/DateEntity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/WebPageEssentials/Factory/DateAggregatorFactory.java" afterPath="$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/Factory/DateAggregatorFactory.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/WebPageEssentials/Factory/ReservationResolverFactory.java" afterPath="$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/Factory/ReservationResolverFactory.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/WebPageEssentials/Reference/HtmlElementReferrer.java" afterPath="$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/Reference/HtmlElementReferrer.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/WebPageEssentials/Requestor/Factory/PageRequestorFactoryForOhana.java" afterPath="$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/Requestor/Factory/PageRequestorFactoryForOhana.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/WebPageEssentials/Requestor/PageRequestor.java" afterPath="$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/Requestor/PageRequestor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/WebPageEssentials/ReservationResolver.java" afterPath="$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/ReservationResolver.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/WebPageEssentials/DateAggregatorTest.java" afterPath="$PROJECT_DIR$/src/test/java/disney/reservation/notification/WebPageEssentials/DateAggregatorTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/WebPageEssentials/DateEntityTest.java" afterPath="$PROJECT_DIR$/src/test/java/disney/reservation/notification/WebPageEssentials/DateEntityTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/WebPageEssentials/Factory/DateAggregatorFactoryTest.java" afterPath="$PROJECT_DIR$/src/test/java/disney/reservation/notification/WebPageEssentials/Factory/DateAggregatorFactoryTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/WebPageEssentials/Reference/HtmlElementReferrerTest.java" afterPath="$PROJECT_DIR$/src/test/java/disney/reservation/notification/WebPageEssentials/Reference/HtmlElementReferrerTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/WebPageEssentials/Requestor/Factory/PageRequestorFactoryForOhanaTest.java" afterPath="$PROJECT_DIR$/src/test/java/disney/reservation/notification/WebPageEssentials/Requestor/Factory/PageRequestorFactoryForOhanaTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/WebPageEssentials/Requestor/PageRequestorTest.java" afterPath="$PROJECT_DIR$/src/test/java/disney/reservation/notification/WebPageEssentials/Requestor/PageRequestorTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/WebPageEssentials/Requestor/testdummy.html" afterPath="$PROJECT_DIR$/src/test/java/disney/reservation/notification/WebPageEssentials/Requestor/testdummy.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/disney_reservation_jar/run.bat" afterPath="$PROJECT_DIR$/out/artifacts/disney_reservation_jar/run.bat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,24 +53,24 @@
     <splitter split-orientation="horizontal" split-proportion="0.54541016">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="MainApp.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/MainApp.java">
+          <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/Application.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="0">
-                  <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="20" />
+                  <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="24" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <marker date="1535074605888" expanded="true" signature="1221:1366" ph="{...}" />
+                    <marker date="1535213165239" expanded="true" signature="1352:1497" ph="{...}" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file leaf-file-name="ReservationResolver.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/WebPageEssentials/ReservationResolver.java">
+            <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/ReservationResolver.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="576">
-                  <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+                  <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -61,24 +79,14 @@
             </entry>
           </file>
           <file leaf-file-name="DateAggregator.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/WebPageEssentials/DateAggregator.java">
+            <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/DateAggregator.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="414">
                   <caret line="33" column="5" lean-forward="false" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
                   <folding>
-                    <element signature="e#733#734#0" expanded="true" />
-                    <element signature="e#791#792#0" expanded="true" />
+                    <element signature="e#765#766#0" expanded="true" />
+                    <element signature="e#823#824#0" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="MANIFEST.MF" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
                 </state>
               </provider>
             </entry>
@@ -104,7 +112,7 @@
             </entry>
           </file>
           <file leaf-file-name="MailerAdapter.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/Adapter/MailerAdapter.java">
+            <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/Adapter/MailerAdapter.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="702">
                   <caret line="45" column="56" lean-forward="false" selection-start-line="45" selection-start-column="50" selection-end-line="45" selection-end-column="56" />
@@ -114,12 +122,13 @@
             </entry>
           </file>
           <file leaf-file-name="DateAggregatorFactory.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/WebPageEssentials/Factory/DateAggregatorFactory.java">
+            <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/Factory/DateAggregatorFactory.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="342">
-                  <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+                <state relative-caret-position="198">
+                  <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                    <element signature="e#506#518#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -139,14 +148,14 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="MainApp.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/MainApp.java">
+          <file leaf-file-name="Application.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/Application.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="540">
-                  <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+                <state relative-caret-position="504">
+                  <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <marker date="1535074605888" expanded="true" signature="1221:1366" ph="{...}" />
+                    <marker date="1535213165239" expanded="true" signature="1352:1497" ph="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -163,22 +172,22 @@
             </entry>
           </file>
           <file leaf-file-name="PageRequestor.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/WebPageEssentials/Requestor/PageRequestor.java">
+            <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/Requestor/PageRequestor.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="558">
-                  <caret line="38" column="40" lean-forward="false" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
+                  <caret line="36" column="40" lean-forward="false" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
                   <folding>
-                    <element signature="e#1193#1194#0" expanded="true" />
-                    <element signature="e#1248#1249#0" expanded="true" />
-                    <element signature="e#1299#1300#0" expanded="true" />
-                    <element signature="e#1350#1351#0" expanded="true" />
+                    <element signature="e#1126#1127#0" expanded="true" />
+                    <element signature="e#1181#1182#0" expanded="true" />
+                    <element signature="e#1232#1233#0" expanded="true" />
+                    <element signature="e#1283#1284#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file leaf-file-name="HtmlElementReferrer.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/WebPageEssentials/Reference/HtmlElementReferrer.java">
+            <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/Reference/HtmlElementReferrer.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="126">
                   <caret line="7" column="42" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="42" />
@@ -250,6 +259,8 @@
         <option value="$PROJECT_DIR$/src/main/java/WebPageEssentials/Factory/DateAggregatorFactory.java" />
         <option value="$PROJECT_DIR$/out/artifacts/disney_reservation_jar/.gitignore" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/WebPageEssentials/Factory/DateAggregatorFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/Factory/DateAggregatorFactory.java" />
       </list>
     </option>
   </component>
@@ -348,16 +359,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="WebPageEssentials" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="disney-reservation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-disney-go-reservation-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="WebPageEssentials" type="462c0819:PsiDirectoryNode" />
-              <item name="Factory" type="462c0819:PsiDirectoryNode" />
+              <item name="notification" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="disney-reservation" type="b2602c69:ProjectViewProjectNode" />
@@ -401,6 +403,7 @@
       <recent name="WebPageEssentials" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="disney.reservation.notification" />
       <recent name="WebPageEssentials.Reference" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -425,18 +428,32 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.MainApp">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="disney.reservation.notification.Application" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="disney-reservation" />
+      <envs />
+    </configuration>
     <configuration name="DateAggregatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="WebPageEssentials.*" />
+          <option name="PATTERN" value="disney.reservation.notification.WebPageEssentials.WebPageEssentials.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="disney-reservation" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="WebPageEssentials" />
-      <option name="MAIN_CLASS_NAME" value="WebPageEssentials.DateAggregatorTest" />
+      <option name="PACKAGE_NAME" value="disney.reservation.notification.WebPageEssentials.WebPageEssentials" />
+      <option name="MAIN_CLASS_NAME" value="disney.reservation.notification.WebPageEssentials.WebPageEssentials.DateAggregatorTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -450,32 +467,18 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="MainApp" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="disney-reservation" />
-      <envs />
-    </configuration>
     <configuration name="PageRequestorFactoryForOhanaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="WebPageEssentials.Requestor.Factory.*" />
+          <option name="PATTERN" value="disney.reservation.notification.WebPageEssentials.WebPageEssentials.Requestor.Factory.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="disney-reservation" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="WebPageEssentials.Requestor.Factory" />
-      <option name="MAIN_CLASS_NAME" value="WebPageEssentials.Requestor.Factory.PageRequestorFactoryForOhanaTest" />
+      <option name="PACKAGE_NAME" value="disney.reservation.notification.WebPageEssentials.WebPageEssentials.Requestor.Factory" />
+      <option name="MAIN_CLASS_NAME" value="disney.reservation.notification.WebPageEssentials.WebPageEssentials.Requestor.Factory.PageRequestorFactoryForOhanaTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -492,42 +495,17 @@
     <configuration name="PageRequestorTest.testGetPageEquals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="WebPageEssentials.Requestor.*" />
+          <option name="PATTERN" value="disney.reservation.notification.WebPageEssentials.WebPageEssentials.Requestor.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="disney-reservation" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="WebPageEssentials.Requestor" />
-      <option name="MAIN_CLASS_NAME" value="WebPageEssentials.Requestor.PageRequestorTest" />
+      <option name="PACKAGE_NAME" value="disney.reservation.notification.WebPageEssentials.WebPageEssentials.Requestor" />
+      <option name="MAIN_CLASS_NAME" value="disney.reservation.notification.WebPageEssentials.WebPageEssentials.Requestor.PageRequestorTest" />
       <option name="METHOD_NAME" value="testGetPageEquals" />
       <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="WebPageEssentials in disney-reservation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="WebPageEssentials.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="disney-reservation" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="WebPageEssentials" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -620,8 +598,33 @@
       <properties />
       <listeners />
     </configuration>
+    <configuration name="disney.reservation.notification.WebPageEssentials.WebPageEssentials in disney-reservation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="disney.reservation.notification.WebPageEssentials.WebPageEssentials.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="disney-reservation" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="disney.reservation.notification.WebPageEssentials.WebPageEssentials" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.WebPageEssentials in disney-reservation" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.disney.reservation.notification.WebPageEssentials.WebPageEssentials in disney-reservation" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.PageRequestorFactoryForOhanaTest" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.DateAggregatorTest" />
       <item index="3" class="java.lang.String" itemvalue="JUnit.PageRequestorTest.testGetPageEquals" />
@@ -632,7 +635,7 @@
         <item index="0" class="java.lang.String" itemvalue="Application.MainApp" />
         <item index="1" class="java.lang.String" itemvalue="JUnit.PageRequestorTest.testGetPageEquals" />
         <item index="2" class="java.lang.String" itemvalue="JUnit.DateAggregatorTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.WebPageEssentials in disney-reservation" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.disney.reservation.notification.WebPageEssentials.WebPageEssentials in disney-reservation" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.PageRequestorFactoryForOhanaTest" />
       </list>
     </recent_temporary>
@@ -653,7 +656,7 @@
       <workItem from="1534978747019" duration="11837000" />
       <workItem from="1535069827642" duration="541000" />
       <workItem from="1535077466426" duration="330000" />
-      <workItem from="1535212442856" duration="415000" />
+      <workItem from="1535212442856" duration="757000" />
     </task>
     <servers />
   </component>
@@ -690,7 +693,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29510000" />
+    <option name="totallyTimeSpent" value="29852000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2064" height="1128" extended-state="6" />
@@ -698,18 +701,20 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.327112" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2681729" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2681729" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22460938" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32907662" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -720,10 +725,8 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.327112" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12402344" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -742,14 +745,14 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/WebPageEssentials/DateEntityTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/disney/reservation/notification/WebPageEssentials/DateEntityTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/WebPageEssentials/Factory/ReservationResolverFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/Factory/ReservationResolverFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="11" column="39" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="39" />
@@ -759,7 +762,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/WebPageEssentials/ReservationResolver.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/ReservationResolver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
@@ -769,18 +772,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MainApp.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1535074605888" expanded="true" signature="1221:1366" ph="{...}" />
+            <marker date="1535213165239" expanded="true" signature="1352:1497" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/WebPageEssentials/Reference/HtmlElementReferrer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/Reference/HtmlElementReferrer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
@@ -788,20 +791,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/WebPageEssentials/DateAggregatorTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/disney/reservation/notification/WebPageEssentials/DateAggregatorTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="882">
           <caret line="53" column="9" lean-forward="true" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MainApp.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="18" column="25" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1535074605888" expanded="true" signature="1221:1366" ph="{...}" />
+            <marker date="1535213165239" expanded="true" signature="1352:1497" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -814,21 +817,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Adapter/SmtpAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/Adapter/SmtpAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Adapter/InfoLoggerAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/Adapter/InfoLoggerAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="11" column="32" lean-forward="true" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Adapter/MailerAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/Adapter/MailerAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="36" column="25" lean-forward="false" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
@@ -836,13 +839,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MainApp.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1535074605888" expanded="true" signature="1221:1366" ph="{...}" />
+            <marker date="1535213165239" expanded="true" signature="1352:1497" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -855,20 +858,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Adapter/InfoLoggerAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/Adapter/InfoLoggerAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MainApp.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1535074605888" expanded="true" signature="1221:1366" ph="{...}" />
+            <marker date="1535213165239" expanded="true" signature="1352:1497" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -881,7 +884,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Adapter/InfoLoggerAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/Adapter/InfoLoggerAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
@@ -917,28 +920,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/WebPageEssentials/Requestor/testdummy.html">
+    <entry file="file://$PROJECT_DIR$/src/test/java/disney/reservation/notification/WebPageEssentials/Requestor/testdummy.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/WebPageEssentials/Requestor/Factory/PageRequestorFactoryForOhanaTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/disney/reservation/notification/WebPageEssentials/Requestor/Factory/PageRequestorFactoryForOhanaTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Adapter/InfoLoggerAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/Adapter/InfoLoggerAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/WebPageEssentials/DateEntity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/DateEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="25" column="60" lean-forward="true" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="60" />
@@ -946,21 +949,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/WebPageEssentials/DateEntityTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/disney/reservation/notification/WebPageEssentials/DateEntityTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Adapter/SmtpAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/Adapter/SmtpAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/WebPageEssentials/Factory/DateAggregatorFactoryTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/disney/reservation/notification/WebPageEssentials/Factory/DateAggregatorFactoryTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
           <caret line="33" column="29" lean-forward="true" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
@@ -968,21 +971,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/WebPageEssentials/Reference/HtmlElementReferrerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/disney/reservation/notification/WebPageEssentials/Reference/HtmlElementReferrerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/WebPageEssentials/DateAggregatorTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/disney/reservation/notification/WebPageEssentials/DateAggregatorTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="882">
           <caret line="53" column="9" lean-forward="false" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/WebPageEssentials/Reference/HtmlElementReferrer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/Reference/HtmlElementReferrer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="42" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="42" />
@@ -997,14 +1000,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/WebPageEssentials/Requestor/PageRequestorTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/disney/reservation/notification/WebPageEssentials/Requestor/PageRequestorTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="26" column="34" lean-forward="false" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/WebPageEssentials/Requestor/Factory/PageRequestorFactoryForOhana.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/Requestor/Factory/PageRequestorFactoryForOhana.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="12" column="55" lean-forward="false" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="55" />
@@ -1012,7 +1015,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/WebPageEssentials/Factory/ReservationResolverFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/Factory/ReservationResolverFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
@@ -1022,7 +1025,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Adapter/MailerAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/Adapter/MailerAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="702">
           <caret line="45" column="56" lean-forward="false" selection-start-line="45" selection-start-column="50" selection-end-line="45" selection-end-column="56" />
@@ -1030,15 +1033,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/WebPageEssentials/Requestor/PageRequestor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/Requestor/PageRequestor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
-          <caret line="38" column="40" lean-forward="false" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
+          <caret line="36" column="40" lean-forward="false" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
           <folding>
-            <element signature="e#1193#1194#0" expanded="true" />
-            <element signature="e#1248#1249#0" expanded="true" />
-            <element signature="e#1299#1300#0" expanded="true" />
-            <element signature="e#1350#1351#0" expanded="true" />
+            <element signature="e#1126#1127#0" expanded="true" />
+            <element signature="e#1181#1182#0" expanded="true" />
+            <element signature="e#1232#1233#0" expanded="true" />
+            <element signature="e#1283#1284#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1065,6 +1068,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1076,13 +1080,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MainApp.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="20" />
+          <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1535074605888" expanded="true" signature="1221:1366" ph="{...}" />
+            <marker date="1535213165239" expanded="true" signature="1352:1497" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1095,23 +1099,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/WebPageEssentials/ReservationResolver.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/ReservationResolver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="576">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/WebPageEssentials/DateAggregator.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/DateAggregator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="33" column="5" lean-forward="false" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
           <folding>
-            <element signature="e#733#734#0" expanded="true" />
-            <element signature="e#791#792#0" expanded="true" />
+            <element signature="e#765#766#0" expanded="true" />
+            <element signature="e#823#824#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1132,12 +1136,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/WebPageEssentials/Factory/DateAggregatorFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/disney/reservation/notification/WebPageEssentials/Factory/DateAggregatorFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="198">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#506#518#0" expanded="true" />
           </folding>
         </state>
       </provider>
