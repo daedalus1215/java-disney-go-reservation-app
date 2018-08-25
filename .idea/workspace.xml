@@ -10,18 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29ed499a-1658-4823-8859-06895ebd9bb6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/disney_reservation_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/disney_reservation_jar/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/disney_reservation_jar/run.bat" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/MainApp.class" afterPath="$PROJECT_DIR$/target/classes/MainApp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/WebPageEssentials/Factory/DateAggregatorFactory.class" afterPath="$PROJECT_DIR$/target/classes/WebPageEssentials/Factory/DateAggregatorFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/WebPageEssentials/ReservationResolver.class" afterPath="$PROJECT_DIR$/target/classes/WebPageEssentials/ReservationResolver.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/config/UserCredentialConfig.class" afterPath="$PROJECT_DIR$/target/classes/config/UserCredentialConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/WebPageEssentials/Factory/DateAggregatorFactory.java" afterPath="$PROJECT_DIR$/src/main/java/WebPageEssentials/Factory/DateAggregatorFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/WebPageEssentials/ReservationResolver.java" afterPath="$PROJECT_DIR$/src/main/java/WebPageEssentials/ReservationResolver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/disney_reservation_jar/run.bat" afterPath="$PROJECT_DIR$/out/artifacts/disney_reservation_jar/run.bat" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,7 +38,7 @@
           <file leaf-file-name="MainApp.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/MainApp.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="36">
+                <state relative-caret-position="0">
                   <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="20" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -121,19 +113,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ReservationResolverFactory.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/WebPageEssentials/Factory/ReservationResolverFactory.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="126">
-                  <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="DateAggregatorFactory.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="DateAggregatorFactory.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/WebPageEssentials/Factory/DateAggregatorFactory.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="342">
@@ -145,7 +125,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+          <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/out/artifacts/disney_reservation_jar/.gitignore">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="18">
@@ -238,7 +218,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/Authentication/SmtpAuthenticator.java" />
         <option value="$PROJECT_DIR$/src/main/java/Logger/InfoLogger.java" />
         <option value="$PROJECT_DIR$/src/main/java/Mailer/Mailer.java" />
@@ -270,6 +249,7 @@
         <option value="$PROJECT_DIR$/src/main/java/WebPageEssentials/ReservationResolver.java" />
         <option value="$PROJECT_DIR$/src/main/java/WebPageEssentials/Factory/DateAggregatorFactory.java" />
         <option value="$PROJECT_DIR$/out/artifacts/disney_reservation_jar/.gitignore" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -673,7 +653,7 @@
       <workItem from="1534978747019" duration="11837000" />
       <workItem from="1535069827642" duration="541000" />
       <workItem from="1535077466426" duration="330000" />
-      <workItem from="1535212442856" duration="312000" />
+      <workItem from="1535212442856" duration="415000" />
     </task>
     <servers />
   </component>
@@ -710,7 +690,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29407000" />
+    <option name="totallyTimeSpent" value="29510000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2064" height="1128" extended-state="6" />
@@ -908,13 +888,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="46" lean-forward="false" selection-start-line="0" selection-start-column="46" selection-end-line="0" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/net/sourceforge/htmlunit/htmlunit/2.32/htmlunit-2.32.jar!/com/gargoylesoftware/htmlunit/html/DomNode.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-468">
@@ -1105,7 +1078,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MainApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
+        <state relative-caret-position="0">
           <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1143,6 +1116,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/disney_reservation_jar/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="7" lean-forward="false" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="5" lean-forward="false" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/WebPageEssentials/Factory/DateAggregatorFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -1150,14 +1139,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/artifacts/disney_reservation_jar/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="7" lean-forward="false" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
