@@ -36,7 +36,7 @@ class DateEntityForSeptemberDinnerFactoryTest {
             assertEquals("DateEntity{" +
                             "date='" + "09/"+expectedDay+"/2018" + '\'' +
                             ", time='" + 80000714 + '\'' +
-                            ", seating=" + 4 +
+                            ", seating=4" +
                             '}',
                     mockDateEntities.get(i).toString());
         }

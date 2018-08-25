@@ -8,20 +8,13 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
-public class MailerAdapter {
-    private String from;
-    private String pass;
-    private String to;
+public class MailerAdapter implements MailerAdapterInterface {
     private MimeMessage message;
     private Session session;
 
     private boolean isSubjectAndTextSet = false;
 
     public MailerAdapter(String from, String pass, String to) throws MessagingException {
-        this.from = from;
-        this.pass = pass;
-        this.to = to;
-
         Properties props = System.getProperties();
         String host = "smtp.gmail.com";
         props.put("mail.smtp.starttls.enable", "true");
