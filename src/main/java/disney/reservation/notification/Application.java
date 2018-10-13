@@ -1,11 +1,17 @@
 package disney.reservation.notification;
 
-import disney.reservation.notification.Adapter.InfoLoggerAdapter;
-import disney.reservation.notification.WebPageEssentials.Factory.ReservationResolverFactory;
+import disney.reservation.notification.Adapter.Logger.InfoLoggerAdapter;
 import disney.reservation.notification.WebPageEssentials.Requestor.PageRequestor;
-import disney.reservation.notification.WebPageEssentials.Requestor.Factory.PageRequestorFactoryForOhana;
+import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.Parser.Exception.ReservationParserException;
+import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.ReservationDataMapper;
+import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.ReservationDataMapperImpl;
+import disney.reservation.notification.WebPageEssentials.Reservation.Entity.ReservationEvent;
 import disney.reservation.notification.WebPageEssentials.ReservationResolver;
 import config.UserCredentialConfig;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import java.util.ArrayList;
 
 public class Application {
 
@@ -13,22 +19,36 @@ public class Application {
         String subject = "testing now";
         String body = "testing body now";
         InfoLoggerAdapter logger = new InfoLoggerAdapter();
-        sendFromGMail(logger, UserCredentialConfig.USERNAME, UserCredentialConfig.PASSWORD, UserCredentialConfig.RECIPIENT, subject, body);
+        sendFromGMail(
+                logger,
+                UserCredentialConfig.USERNAME,
+                UserCredentialConfig.PASSWORD,
+                UserCredentialConfig.RECIPIENT,
+                subject,
+                body
+        );
     }
 
     private static void sendFromGMail(InfoLoggerAdapter logger, String from, String pass, String to, String subject, String body) {
+        String url = "https://disneyworld.disney.go.com/dining/polynesian-resort/ohana/";
 
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(NotificationContext.class);
         try {
-            PageRequestor pageRequestor = (new PageRequestorFactoryForOhana()).createPageRequestor();
+            PageRequestor pageRequestor = applicationContext.getBean(PageRequestor.class);
+            ReservationDataMapper dataMapper = applicationContext.getBean(ReservationDataMapperImpl.class);
+            ArrayList<ReservationEvent> events = dataMapper.load();
 
-            pageRequestor.visitWebPage();
+            // visit the site //@todo: moved this over to the Resolver.
+//            pageRequestor.visitWebPage(url);
 
-            ReservationResolver reservationResolver = new ReservationResolverFactory().createReservationResolver();
+            ReservationResolver reservationResolver = applicationContext.getBean(ReservationResolver.class);
 
-            reservationResolver.checkForAvailabilityAndEmail(pageRequestor);
+            reservationResolver.checkForAvailabilityAndEmail(events, pageRequestor);
 
         } catch (Exception e) {
             logger.info("Exception thrown: " + e.getMessage());
+            e.printStackTrace();
+        } catch (ReservationParserException e) {
             e.printStackTrace();
         }
     }
