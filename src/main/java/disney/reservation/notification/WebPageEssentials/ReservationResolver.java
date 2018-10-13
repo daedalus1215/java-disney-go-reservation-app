@@ -7,6 +7,7 @@ import disney.reservation.notification.WebPageEssentials.Reference.HtmlElementRe
 import disney.reservation.notification.WebPageEssentials.Requestor.PageRequestor;
 import com.gargoylesoftware.htmlunit.html.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -16,6 +17,7 @@ public class ReservationResolver implements ReservationResolverInterface {
     private ArrayList<DateEntityInterface> dateEntities;
     private InfoLoggerAdapter infoLoggerAdapter;
 
+
     public ReservationResolver(MailerAdapterInterface mailerAdapter, HtmlElementReferrer htmlElementReferrer, ArrayList<DateEntityInterface> dateEntities, InfoLoggerAdapter infoLoggerAdapter) {
         this.mailerAdapter = mailerAdapter;
         this.htmlElementReferrer = htmlElementReferrer;
@@ -23,46 +25,98 @@ public class ReservationResolver implements ReservationResolverInterface {
         this.infoLoggerAdapter = infoLoggerAdapter;
     }
 
-    /**
-     *
-     */
+
     public void checkForAvailabilityAndEmail(PageRequestor requestor) throws Exception {
 
         for (int i = 0; i < this.dateEntities.size(); i++) {
-            // set the date calendar field
-            HtmlInput dateCalendarField = (HtmlInput) requestor.getElementByXPath(this.htmlElementReferrer.DATE_ID_XPATH);
-            dateCalendarField.setValueAttribute(dateEntities.get(i).getDate());
 
-            // Time Drop down field
-            HtmlSelect timeSelectField = (HtmlSelect) requestor.getElementByXPath(this.htmlElementReferrer.TIME_ID_XPATH);
-            HtmlOption option = timeSelectField.getOptionByValue(dateEntities.get(i).getTime());
-            timeSelectField.setSelectedAttribute(option, true);
+            this.setDateFieldForReservation(requestor, i);
 
-            // Party Size Drop down field
-            HtmlSelect partySizeSelectField = (HtmlSelect) requestor.getElementByXPath(this.htmlElementReferrer.PARTY_SIZE_XPATH);
-            HtmlOption partySizeOption = partySizeSelectField.getOptionByValue(dateEntities.get(i).getSeating());
-            partySizeSelectField.setSelectedAttribute(partySizeOption, true);
+            this.setTimeFieldForReservation(requestor, i);
 
-            HtmlButton findTableButton = (HtmlButton) requestor.getElementById(this.htmlElementReferrer.SEARCH_TIME_BTN_ID);
-//            this.infoLoggerAdapter.info("clicking on the submit button");
-            findTableButton.click();
+            this.setPartySizeForReservation(requestor, i);
 
-            requestor.waitInSeconds(10);
+            this.submitForm(requestor);
 
-
-            String diningReservationInfoTitle = "/html/body/div[1]/div[2]/div[4]/div/div/div[4]/div[2]/span/div[2]/div[4]/span[2]";
-            HtmlSpan diningReservationInfoTitleDiv = (HtmlSpan) requestor.getElementByXPath(diningReservationInfoTitle);
-
-            if (diningReservationInfoTitleDiv != null) {
-                this.infoLoggerAdapter.info("Reservation potential alert: " + diningReservationInfoTitleDiv.asText());
-                this.mailerAdapter.setSubjectAndBody("Reservation potential alert: ", "For the day and time: " +diningReservationInfoTitleDiv.asText());
-                this.mailerAdapter.sendMessage();
-            } else {
+            try {
+                this.sendMessage(this.getReservationIfAvailable(requestor));
+            } catch (Exception e) {
                 this.infoLoggerAdapter.info("Current Time: " + Calendar.getInstance().getTime().toString() +
                         " no reservation potential for: " + dateEntities.get(i).getDate());
             }
         }
     }
 
+    /**
+     * Set the date calendar field
+     * @param requestor
+     * @param iteration
+     */
+    private void setDateFieldForReservation(PageRequestor requestor, int iteration) {
+        HtmlInput dateCalendarField = (HtmlInput) requestor.getElementByXPath(this.htmlElementReferrer.DATE_ID_XPATH);
+        dateCalendarField.setValueAttribute(dateEntities.get(iteration).getDate());
+    }
 
+    /**
+     * Set the Time for the reservation.
+     *
+     * @param requestor
+     */
+    private void setTimeFieldForReservation(PageRequestor requestor, int iteration) {
+        HtmlSelect timeSelectField = (HtmlSelect) requestor.getElementByXPath(this.htmlElementReferrer.TIME_ID_XPATH);
+        HtmlOption option = timeSelectField.getOptionByValue(dateEntities.get(iteration).getTime());
+        timeSelectField.setSelectedAttribute(option, true);
+    }
+
+    /**
+     * Party Size Drop down field
+     * @param requestor
+     * @param iteration
+     */
+    private void setPartySizeForReservation(PageRequestor requestor, int iteration) {
+        HtmlSelect partySizeSelectField = (HtmlSelect) requestor.getElementByXPath(this.htmlElementReferrer.PARTY_SIZE_XPATH);
+        HtmlOption partySizeOption = partySizeSelectField.getOptionByValue(dateEntities.get(iteration).getSeating());
+        partySizeSelectField.setSelectedAttribute(partySizeOption, true);
+    }
+
+    /**
+     *
+     */
+    private void submitForm(PageRequestor requestor) throws IOException {
+        HtmlButton findTableButton = (HtmlButton) requestor.getElementById(this.htmlElementReferrer.SEARCH_TIME_BTN_ID);
+//            this.infoLoggerAdapter.info("clicking on the submit button");
+        findTableButton.click();
+    }
+
+    /**
+     * Wait 10 seconds for the page load, then check to see if the dining reservation info title div is set, if it is
+     * than we know we can set a reservation.
+     *
+     * @param requestor
+     * @return
+     */
+    private HtmlSpan getReservationIfAvailable(PageRequestor requestor) throws Exception {
+        requestor.waitInSeconds(10);
+        String diningReservationInfoTitle = "/html/body/div[1]/div[2]/div[4]/div/div/div[4]/div[2]/span/div[2]/div[4]/span[2]";
+        HtmlSpan diningReservationInfoTitleDiv = (HtmlSpan) requestor.getElementByXPath(diningReservationInfoTitle);
+
+        if (diningReservationInfoTitleDiv != null) {
+            return diningReservationInfoTitleDiv;
+        } else {
+            throw new Exception("Current Time: " + Calendar.getInstance().getTime().toString() +
+                    " no reservation potential for: ");
+        }
+    }
+
+    /**
+     * Send the message out.
+     *
+     * @param diningReservationInfoTitleDiv
+     * @throws Exception
+     */
+    private void sendMessage(HtmlSpan diningReservationInfoTitleDiv) throws Exception {
+        this.infoLoggerAdapter.info("ReservationEntity potential alert: " + diningReservationInfoTitleDiv.asText());
+        this.mailerAdapter.setSubjectAndBody("ReservationEntity potential alert: ", "For the day and time: " +diningReservationInfoTitleDiv.asText());
+        this.mailerAdapter.sendMessage();
+    }
 }

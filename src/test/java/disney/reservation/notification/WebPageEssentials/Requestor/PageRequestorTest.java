@@ -15,10 +15,10 @@ class PageRequestorTest {
         String stubUrl = "testdummy.html";
         WebClient stubWebClient = new WebClient();
 
-        PageRequestor tester = new PageRequestor(stubUrl, stubWebClient);
+        PageRequestor tester = new PageRequestor(stubWebClient);
 
         try {
-            tester.visitWebPage();
+            tester.visitWebPage(stubUrl);
             assertEquals("testdummy.html", tester.page.getUrl());
         } catch (IOException exception) {
 

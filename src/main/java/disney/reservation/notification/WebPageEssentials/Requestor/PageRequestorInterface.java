@@ -6,7 +6,8 @@ import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import java.io.IOException;
 
 public interface PageRequestorInterface {
-    void visitWebPage() throws IOException;
+
+    void visitWebPage(String url) throws IOException;
 
     void waitInSeconds(int inSeconds);
 

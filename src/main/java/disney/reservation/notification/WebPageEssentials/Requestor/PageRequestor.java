@@ -13,7 +13,7 @@ public class PageRequestor implements PageRequestorInterface {
     public HtmlPage page;
 
 
-    public PageRequestor(String url, WebClient webClient) {
+    public PageRequestor(WebClient webClient) {
         this.url = url;
         this.webClient = webClient;
     }
@@ -24,8 +24,9 @@ public class PageRequestor implements PageRequestorInterface {
      * @return HtmlPage page
      * @throws IOException
      */
-    public void visitWebPage() throws IOException {
-        HtmlPage page = this.webClient.getPage(this.url);
+    public void visitWebPage(String url) throws IOException {
+        this.url = url;
+        HtmlPage page = this.webClient.getPage(url);
         this.waitInSeconds(5);
         this.page = page;
     }
@@ -50,7 +51,7 @@ public class PageRequestor implements PageRequestorInterface {
 
     public String toString() {
         return "PageRequestor{" +
-                "url='" + url + '\'' +
+                "url='" + this.url + '\'' +
                 ", webClient=" + webClient.getClass().toString() +
                 '}';
     }

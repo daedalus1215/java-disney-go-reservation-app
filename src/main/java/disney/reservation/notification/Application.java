@@ -13,15 +13,23 @@ public class Application {
         String subject = "testing now";
         String body = "testing body now";
         InfoLoggerAdapter logger = new InfoLoggerAdapter();
-        sendFromGMail(logger, UserCredentialConfig.USERNAME, UserCredentialConfig.PASSWORD, UserCredentialConfig.RECIPIENT, subject, body);
+        sendFromGMail(
+                logger,
+                UserCredentialConfig.USERNAME,
+                UserCredentialConfig.PASSWORD,
+                UserCredentialConfig.RECIPIENT,
+                subject,
+                body
+        );
     }
 
     private static void sendFromGMail(InfoLoggerAdapter logger, String from, String pass, String to, String subject, String body) {
+        String url = "https://disneyworld.disney.go.com/dining/polynesian-resort/ohana/";
 
         try {
             PageRequestor pageRequestor = (new PageRequestorFactoryForOhana()).createPageRequestor();
 
-            pageRequestor.visitWebPage();
+            pageRequestor.visitWebPage(url);
 
             ReservationResolver reservationResolver = new ReservationResolverFactory().createReservationResolver();
 
