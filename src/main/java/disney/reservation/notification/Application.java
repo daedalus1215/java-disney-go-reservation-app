@@ -1,6 +1,6 @@
 package disney.reservation.notification;
 
-import disney.reservation.notification.Adapter.InfoLoggerAdapter;
+import disney.reservation.notification.Adapter.Logger.InfoLoggerAdapter;
 import disney.reservation.notification.WebPageEssentials.Factory.ReservationResolverFactory;
 import disney.reservation.notification.WebPageEssentials.Requestor.PageRequestor;
 import disney.reservation.notification.WebPageEssentials.Requestor.Factory.PageRequestorFactoryForOhana;

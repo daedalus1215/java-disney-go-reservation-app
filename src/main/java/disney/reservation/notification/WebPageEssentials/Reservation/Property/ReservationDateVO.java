@@ -7,7 +7,11 @@ final public class ReservationDateVO implements ReservationDateInterface {
     private String seating;
 
 
-    public ReservationDateVO(String date, String time, String seating) {
+    public ReservationDateVO(String date, String time, String seating) throws Exception {
+        if (date == null || time == null || seating == null) {
+            throw new Exception("Must have a valid date, time, and seating for every ReservationDate");
+        }
+
         this.date = date;
         this.time = time;
         this.seating = seating;

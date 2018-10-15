@@ -1,7 +1,6 @@
 package disney.reservation.notification.WebPageEssentials;
 
-import disney.reservation.notification.Adapter.InfoLoggerAdapter;
-import disney.reservation.notification.Adapter.MailerAdapter;
+import disney.reservation.notification.Adapter.Logger.InfoLoggerAdapter;
 import disney.reservation.notification.Adapter.MailerAdapterInterface;
 import disney.reservation.notification.WebPageEssentials.Reference.HtmlElementReferrer;
 import disney.reservation.notification.WebPageEssentials.Requestor.PageRequestor;
