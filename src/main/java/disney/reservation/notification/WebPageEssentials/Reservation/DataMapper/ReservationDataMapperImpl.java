@@ -4,7 +4,12 @@ import disney.reservation.notification.WebPageEssentials.Reservation.ValueObject
 
 import java.util.ArrayList;
 
-public interface ReservationDataMapper {
+public class ReservationDataMapperImpl implements ReservationDataMapper {
 
-    public ArrayList<ReservationEvent> fetchReservationEvents();
+
+    @Override
+    public ArrayList<ReservationEvent> fetchReservationEvents() {
+
+        return null;
+    }
 }
