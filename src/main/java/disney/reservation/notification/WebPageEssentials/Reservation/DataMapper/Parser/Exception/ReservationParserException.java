@@ -1,8 +1,8 @@
 package disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.Parser.Exception;
 
-public class ReservationparserException extends Throwable {
+public class ReservationParserException extends Throwable {
 
-    public ReservationparserException(String message) {
+    public ReservationParserException(String message) {
         super(message);
     }
 }

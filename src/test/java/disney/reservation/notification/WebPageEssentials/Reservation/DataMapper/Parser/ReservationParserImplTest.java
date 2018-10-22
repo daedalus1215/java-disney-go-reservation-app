@@ -2,28 +2,23 @@ package disney.reservation.notification.WebPageEssentials.Reservation.DataMapper
 
 
 import disney.reservation.notification.Adapter.Logger.Logger;
-import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.Parser.Exception.ReservationparserException;
-import disney.reservation.notification.WebPageEssentials.Reservation.Property.ReservationDateInterface;
+import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.Parser.Exception.ReservationParserException;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.ParseException;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.mockito.Mockito;
 
-import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 
 public class ReservationParserImplTest {
 
 
     @Test
-    public void testParseEquals() throws Exception, ReservationparserException {
+    public void testParseEquals() throws Exception, ReservationParserException {
         String directoryPath = FileSystems.getDefault().getPath("").toAbsolutePath().toString() + "/src/test/java/disney/reservation/notification/WebPageEssentials/reservation/DataMapper/Parser";
         Logger stubLogger = mock(Logger.class);
         ReservationParserImpl tester = new ReservationParserImpl(stubLogger);
@@ -44,7 +39,7 @@ public class ReservationParserImplTest {
 
 
     @Test
-    public void testParseNotEquals() throws Exception, ReservationparserException {
+    public void testParseNotEquals() throws Exception, ReservationParserException {
         String directoryPath = FileSystems.getDefault().getPath("").toAbsolutePath().toString() + "/src/test/java/disney/reservation/notification/WebPageEssentials/reservation/DataMapper/Parser";
         Logger stubLogger = mock(Logger.class);
         ReservationParserImpl tester = new ReservationParserImpl(stubLogger);

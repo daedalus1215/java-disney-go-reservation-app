@@ -1,8 +1,7 @@
 package disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.Parser;
 
-import disney.reservation.notification.Adapter.Logger.InfoLoggerAdapter;
 import disney.reservation.notification.Adapter.Logger.Logger;
-import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.Parser.Exception.ReservationparserException;
+import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.Parser.Exception.ReservationParserException;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -27,7 +26,7 @@ public class ReservationParserImpl implements ReservationParser {
 
             } catch (Exception ex) {
                 this.loggerAdapter.info(ex.getMessage());
-            } catch (ReservationparserException e) {
+            } catch (ReservationParserException e) {
                 this.loggerAdapter.info(e.getMessage());
             }
             return null;
@@ -41,7 +40,7 @@ public class ReservationParserImpl implements ReservationParser {
      * @param targetDirectory
      * @return dataHolder
      */
-    private ArrayList<JSONObject> parseJsons(File targetDirectory) throws IOException, ParseException, ReservationparserException {
+    private ArrayList<JSONObject> parseJsons(File targetDirectory) throws IOException, ParseException, ReservationParserException {
         File[] jsonFiles = colateJsonFilesInDirectory(targetDirectory);
 
 
@@ -56,7 +55,7 @@ public class ReservationParserImpl implements ReservationParser {
     }
 
 
-    private File[] colateJsonFilesInDirectory(File dir) throws ReservationparserException {
+    private File[] colateJsonFilesInDirectory(File dir) throws ReservationParserException {
         File[] jsonFiles = dir.listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {
@@ -65,7 +64,7 @@ public class ReservationParserImpl implements ReservationParser {
         });
 
         if (jsonFiles == null) {
-            throw new ReservationparserException("No json files in: " + dir.getAbsoluteFile().toString());
+            throw new ReservationParserException("No json files in: " + dir.getAbsoluteFile().toString());
         }
 
         return jsonFiles;
