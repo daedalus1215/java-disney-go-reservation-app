@@ -1,17 +1,16 @@
 package disney.reservation.notification;
 
 import disney.reservation.notification.Adapter.Logger.InfoLoggerAdapter;
-import disney.reservation.notification.Adapter.Logger.Logger;
-import disney.reservation.notification.WebPageEssentials.Factory.ReservationResolverFactory;
 import disney.reservation.notification.WebPageEssentials.Requestor.PageRequestor;
-import disney.reservation.notification.WebPageEssentials.Requestor.Factory.PageRequestorFactoryForOhana;
 import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.ReservationDataMapper;
 import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.ReservationDataMapperImpl;
+import disney.reservation.notification.WebPageEssentials.Reservation.Entity.ReservationEvent;
 import disney.reservation.notification.WebPageEssentials.ReservationResolver;
 import config.UserCredentialConfig;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.ArrayList;
 
 public class Application {
 
@@ -34,17 +33,16 @@ public class Application {
 
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(NotificationContext.class);
         try {
-            PageRequestor pageRequestor = (new PageRequestorFactoryForOhana()).createPageRequestor();
+            PageRequestor pageRequestor = applicationContext.getBean(PageRequestor.class);
+            ReservationDataMapper dataMapper = applicationContext.getBean(ReservationDataMapperImpl.class);
+            ArrayList<ReservationEvent> events = dataMapper.fetchReservationEvents();
 
-            String d = " ";
-
-            // visit the site
+            // visit the site //@todo: moved this over to the Resolver.
 //            pageRequestor.visitWebPage(url);
 
+            ReservationResolver reservationResolver = applicationContext.getBean(ReservationResolver.class);
 
-//            ReservationResolver reservationResolver = new ReservationResolverFactory().createReservationResolver();
-
-//            reservationResolver.checkForAvailabilityAndEmail(pageRequestor);
+            reservationResolver.checkForAvailabilityAndEmail(events, pageRequestor);
 
         } catch (Exception e) {
             logger.info("Exception thrown: " + e.getMessage());

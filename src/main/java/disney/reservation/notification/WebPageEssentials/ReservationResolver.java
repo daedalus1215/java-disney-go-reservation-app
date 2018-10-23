@@ -1,33 +1,42 @@
 package disney.reservation.notification.WebPageEssentials;
 
+
 import disney.reservation.notification.Adapter.Logger.InfoLoggerAdapter;
 import disney.reservation.notification.Adapter.MailerAdapterInterface;
 import disney.reservation.notification.WebPageEssentials.Reference.HtmlElementReferrer;
 import disney.reservation.notification.WebPageEssentials.Requestor.PageRequestor;
 import com.gargoylesoftware.htmlunit.html.*;
-
+import disney.reservation.notification.WebPageEssentials.Reservation.Entity.ReservationEvent;
+import disney.reservation.notification.WebPageEssentials.Reservation.Entity.ValueObject.Date;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+
 public class ReservationResolver implements ReservationResolverInterface {
     private MailerAdapterInterface mailerAdapter;
     private HtmlElementReferrer htmlElementReferrer;
-    private ArrayList<DateEntityInterface> dateEntities;
+    private ArrayList<Date> dates;
     private InfoLoggerAdapter infoLoggerAdapter;
 
 
-    public ReservationResolver(MailerAdapterInterface mailerAdapter, HtmlElementReferrer htmlElementReferrer, ArrayList<DateEntityInterface> dateEntities, InfoLoggerAdapter infoLoggerAdapter) {
+    public ReservationResolver(MailerAdapterInterface mailerAdapter, HtmlElementReferrer htmlElementReferrer, InfoLoggerAdapter infoLoggerAdapter) {
         this.mailerAdapter = mailerAdapter;
         this.htmlElementReferrer = htmlElementReferrer;
-        this.dateEntities = dateEntities;
         this.infoLoggerAdapter = infoLoggerAdapter;
     }
 
 
-    public void checkForAvailabilityAndEmail(PageRequestor requestor) throws Exception {
+    public void checkForAvailabilityAndEmail(ArrayList<ReservationEvent> reservationEvents, PageRequestor requestor) throws Exception {
 
-        for (int i = 0; i < this.dateEntities.size(); i++) {
+        // @todo: need to go through the ReservationEvents,
+//        reservationEvents
+//        ArrayList<Date> dates = reservationEvent.dates;
+//
+//        requestor.visitWebPage(reservationEvent.url);
+
+
+        for (int i = 0; i < this.dates.size(); i++) {
 
             this.setDateFieldForReservation(requestor, i);
 
@@ -41,7 +50,7 @@ public class ReservationResolver implements ReservationResolverInterface {
                 this.sendMessage(this.getReservationIfAvailable(requestor));
             } catch (Exception e) {
                 this.infoLoggerAdapter.info("Current Time: " + Calendar.getInstance().getTime().toString() +
-                        " no reservation potential for: " + dateEntities.get(i).getDate());
+                        " no reservation potential for: " + dates.get(i).getDate());
             }
         }
     }
@@ -53,7 +62,7 @@ public class ReservationResolver implements ReservationResolverInterface {
      */
     private void setDateFieldForReservation(PageRequestor requestor, int iteration) {
         HtmlInput dateCalendarField = (HtmlInput) requestor.getElementByXPath(this.htmlElementReferrer.DATE_ID_XPATH);
-        dateCalendarField.setValueAttribute(dateEntities.get(iteration).getDate());
+        dateCalendarField.setValueAttribute(dates.get(iteration).getDate());
     }
 
     /**
@@ -63,7 +72,7 @@ public class ReservationResolver implements ReservationResolverInterface {
      */
     private void setTimeFieldForReservation(PageRequestor requestor, int iteration) {
         HtmlSelect timeSelectField = (HtmlSelect) requestor.getElementByXPath(this.htmlElementReferrer.TIME_ID_XPATH);
-        HtmlOption option = timeSelectField.getOptionByValue(dateEntities.get(iteration).getTime());
+        HtmlOption option = timeSelectField.getOptionByValue(dates.get(iteration).getTime());
         timeSelectField.setSelectedAttribute(option, true);
     }
 
@@ -74,7 +83,7 @@ public class ReservationResolver implements ReservationResolverInterface {
      */
     private void setPartySizeForReservation(PageRequestor requestor, int iteration) {
         HtmlSelect partySizeSelectField = (HtmlSelect) requestor.getElementByXPath(this.htmlElementReferrer.PARTY_SIZE_XPATH);
-        HtmlOption partySizeOption = partySizeSelectField.getOptionByValue(dateEntities.get(iteration).getSeating());
+        HtmlOption partySizeOption = partySizeSelectField.getOptionByValue(dates.get(iteration).getSeating());
         partySizeSelectField.setSelectedAttribute(partySizeOption, true);
     }
 

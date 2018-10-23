@@ -5,7 +5,7 @@ import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.Parser.ReservationParser;
-import disney.reservation.notification.WebPageEssentials.Reservation.ValueObject.ReservationEvent;
+import disney.reservation.notification.WebPageEssentials.Reservation.Entity.ReservationEvent;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.util.ArrayList;
