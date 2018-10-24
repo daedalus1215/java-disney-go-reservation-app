@@ -12,4 +12,17 @@ public class ReservationEvent {
     public String time;
     public String seating;
     public ArrayList<Date> dates;
+
+
+    public ReservationEvent clone() {
+
+        ReservationEvent newEvent = new ReservationEvent();
+        newEvent.url = this.url;
+        newEvent.startDate = this.startDate;
+        newEvent.endDate = this.endDate;
+        newEvent.time = this.time;
+        newEvent.dates = this.dates;
+
+        return newEvent;
+    }
 }
