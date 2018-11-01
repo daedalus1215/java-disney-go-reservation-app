@@ -5,11 +5,10 @@
     "removeComments": true,
     "preserveConstEnums": true,
     "outFile": "../public/dist/",
+    "target": "es6",
     "sourceMap": true
   },
-  "include": [
-    "src/**/*"
-  ],
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": [
     "node_modules",
     "**/*.spec.ts"
