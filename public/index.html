@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Reservation Event Creator</title>
 
     <link rel="stylesheet" href="dist/style.css">
 
@@ -56,7 +56,6 @@
             box-shadow: 0 2px 6px rgba(0,0,0,.2),0 2px 3px rgba(0,0,0,.05);
         }
 
-
     </style>
 
 </head>
@@ -68,23 +67,27 @@
         <p class="title">Create New Reservation Event</p>
         <ul id="fieldlist">
             <li>
-                <label>Url</label>
-                <input id="url" class="k-textbox" type="url" title="url" style="width: 100%;"/>
-            </li>
-            <li>
-                <label style="display:inline-block;">Size of party:</label>
-                <input id="numeric" type="number" title="numeric" value="6" min="1" max="6" step="1" style="width: 200px; display:inline-block"/>
-            </li>
-            <li>
-                <label style="display:inline-block">Time</label>
-                <input id="timepicker" value="10:00 AM" title="timepicker" style="width: 200px; display:inline-block;" />
+                <label>Event Name</label>
+                <input id="event_name" class="k-textbox" type="text" title="event name" style="width: 80%;"/>
             </li>
             <li>
                 <label>Days</label>
                 <div id="calendar"></div>
             </li>
             <li>
-                <button id="addBtn" class="k-primary" style="float:right; margin-right: 1em;">Primary Button</button>
+                <label>Url</label>
+                <input id="url" class="k-textbox" type="url" title="url" style="width: 100%;"/>
+            </li>
+            <li>
+                <label>Size of party:</label>
+                <input id="party_size" type="number" title="numeric" value="3" min="1" max="6" step="1"/>
+            </li>
+            <li>
+                <label>Time</label>
+                <input id="time_picker" value="10:00 AM" title="time picker"/>
+            </li>
+            <li>
+                <button id="add_btn" class="k-primary">Primary Button</button>
             </li>
         </ul>
     </div>
