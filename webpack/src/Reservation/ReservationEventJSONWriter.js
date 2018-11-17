@@ -1,4 +1,4 @@
-// const fs = require('fs');
+import 'file-saver';
 
 export class ReservationEventJSONWriter {
 
@@ -6,6 +6,16 @@ export class ReservationEventJSONWriter {
 
     writeReservation(eventName, dates, url, partySize, time) {
         console.log('Write the details to a json file.');
-        // fs.writeFile();
+        let data = {
+            eventName: eventName,
+            dates: dates,
+            url: url,
+            partySize: partySize,
+            time: time
+        };
+        let json = JSON.stringify(data);
+        let blob = new Blob([json], {type: "application/json"});
+        let fileName = eventName+".json";
+        saveAs(blob, fileName);
     }
 }
