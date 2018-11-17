@@ -1,17 +1,17 @@
 import $ from 'jquery';
 import 'kendo-ui';
+import { ReservationEventJSONWriter } from '../../../Reservation/ReservationEventJSONWriter';
 
 
 export class ReservationForm {
 
-    constructor(ReservationWriter) {
+    constructor() {
         this.eventName = null;
         this.dates = [];
         this.url = null;
         this.partySize = null;
         this.time = null;
-        this.ReservationWriter = ReservationWriter;
-
+        
         let self = this;
 
         $("#party_size").kendoNumericTextBox();
@@ -32,25 +32,25 @@ export class ReservationForm {
             icon: "check"
         });
 
-        $("#add_btn").on("click", this.processForm);
+        $("#add_btn").on("click", ReservationForm.processForm);
     }
 
 
-    processForm(event) {
-        let self = this;
+    static processForm(event) {
+        let reservationEventWriter = new ReservationEventJSONWriter();
 
         ReservationForm.setEventName(self);
         ReservationForm.setDates(self);
         ReservationForm.setUrl(self);
         ReservationForm.setPartySize(self);
         ReservationForm.setTime(self);
-        self.ReservationWriter.writeReservation(
+        reservationEventWriter.writeReservation(
             self.eventName,
             self.dates,
             self.url,
             self.partySize,
             self.time
-        )
+        );
     }
 
 
