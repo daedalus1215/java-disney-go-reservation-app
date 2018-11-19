@@ -1,51 +1,29 @@
 package disney.reservation.notification.WebPageEssentials.Reservation.Date.DataMapper;
 
 
-import disney.reservation.notification.WebPageEssentials.Reservation.Entity.ReservationEvent;
 import disney.reservation.notification.WebPageEssentials.Reservation.Entity.ValueObject.Date;
+import disney.reservation.notification.WebPageEssentials.Reservation.Entity.ValueObject.DateImpl;
+import org.json.simple.JSONObject;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Locale;
-import java.util.concurrent.TimeUnit;
-
-public class DateDataMapperImpl {
-
-    public DateDataMapperImpl() {
-
-    }
-
-    /**
-     * fetch the dates for the event
-     * @param ReservationEvent theEvent
-     * @return ReservationEvent theEvent
-     */
-    public ArrayList<Date> fetchDateValueObjects(ReservationEvent theEvent) throws ParseException {
-
-        ReservationEvent event = theEvent.clone();
-        SimpleDateFormat sdf = new  SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH);
-
-        java.util.Date firstDate = sdf.parse(event.startDate);
-        java.util.Date endDate = sdf.parse(event.endDate);
 
 
-        long diffInMillies = Math.abs(endDate.getTime() - firstDate.getTime());
-        long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+public class DateDataMapperImpl implements DateDataMapper{
 
+    public DateDataMapperImpl() {}
 
-        //@todo: need to create Dates from the start to the end dates setup.
-
+    public ArrayList<Date> load(JSONObject reservationDTO) throws ParseException {
 
         ArrayList<Date> dates = new ArrayList<>();
+        ArrayList<String> datesDTO = (ArrayList<String>) reservationDTO.get("dates");
 
-        for (Date date:event.dates) {
-            date.
+        for (String date:datesDTO) {
+           Date voDate = new DateImpl(date,
+                   (String) reservationDTO.get("time"),
+                   (String) reservationDTO.get("partySize"));
+           dates.add(voDate);
         }
-
-        return null;
+        return dates;
     }
-
-
-    private int
 }

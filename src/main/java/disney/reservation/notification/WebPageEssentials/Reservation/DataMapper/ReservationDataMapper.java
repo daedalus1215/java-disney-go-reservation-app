@@ -5,5 +5,5 @@ import disney.reservation.notification.WebPageEssentials.Reservation.Entity.Rese
 import java.util.ArrayList;
 
 public interface ReservationDataMapper {
-    public ArrayList<ReservationEvent> fetchReservationEvents();
+    public ArrayList<ReservationEvent> load() throws java.text.ParseException;
 }

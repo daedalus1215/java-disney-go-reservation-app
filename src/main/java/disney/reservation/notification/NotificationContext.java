@@ -11,6 +11,8 @@ import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.
 import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.Parser.ReservationParserImpl;
 import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.ReservationDataMapper;
 import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.ReservationDataMapperImpl;
+import disney.reservation.notification.WebPageEssentials.Reservation.Date.DataMapper.DateDataMapper;
+import disney.reservation.notification.WebPageEssentials.Reservation.Date.DataMapper.DateDataMapperImpl;
 import disney.reservation.notification.WebPageEssentials.ReservationResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -35,7 +37,7 @@ public class NotificationContext {
     public ReservationDataMapper ReservationDataMapperImpl() {
         Logger logger = applicationContext.getBean(InfoLoggerAdapter.class, "Logger");
         ReservationParser parser = new ReservationParserImpl(logger);
-        ReservationDataMapper dataMapper = new ReservationDataMapperImpl(parser);
+        ReservationDataMapper dataMapper = new ReservationDataMapperImpl(parser, new DateDataMapperImpl());
         return dataMapper;
     }
 

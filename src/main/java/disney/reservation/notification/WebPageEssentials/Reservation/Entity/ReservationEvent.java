@@ -4,25 +4,33 @@ package disney.reservation.notification.WebPageEssentials.Reservation.Entity;
 import disney.reservation.notification.WebPageEssentials.Reservation.Entity.ValueObject.Date;
 import java.util.ArrayList;
 
-
+/**
+ * ReservationEvent, it should have the URL, the dates, and a name associated with every ReservationEvent.
+ */
 public class ReservationEvent {
+    /**
+     * @var url: the url for the reservation.
+     */
     public String url;
-    public String startDate;
-    public String endDate;
-    public String time;
-    public String seating;
+    /**
+     * @var name: name of this reservation.
+     */
+    public String name;
+    /**
+     * @var dates: the dates we want to reserve.
+     */
     public ArrayList<Date> dates;
 
 
+    /**
+     * Not sure if we even need this.
+     * @return ReservationEvent
+     */
     public ReservationEvent clone() {
-
         ReservationEvent newEvent = new ReservationEvent();
         newEvent.url = this.url;
-        newEvent.startDate = this.startDate;
-        newEvent.endDate = this.endDate;
-        newEvent.time = this.time;
+        newEvent.name = this.name;
         newEvent.dates = this.dates;
-
         return newEvent;
     }
 }

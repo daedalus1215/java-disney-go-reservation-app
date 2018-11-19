@@ -14,16 +14,13 @@ class ReservationEventTest {
 
 
     public void setup() {
+        ArrayList<Date> mockDates = new ArrayList<>();
+        Date mockDateImpl = new DateImpl("09/18/2018", "8000029", "4");
+        mockDates.add(mockDateImpl);
+
         ReservationEvent tester = new ReservationEvent();
         tester.url = "http://test.com";
-        tester.startDate = "09/18/2018";
-        tester.endDate = "09/28/2018";
-        tester.time = "8000029";
-        tester.seating = "4";
-
-        ArrayList<Date> mockDates = new ArrayList<>();
-        Date mockDateImpl = new DateImpl(tester.startDate, tester.time, tester.seating);
-        mockDates.add(mockDateImpl);
+        tester.name = "testing-name--of-reservation";
         tester.dates = mockDates;
         this.tester = tester;
     }
@@ -33,10 +30,6 @@ class ReservationEventTest {
     public void testConstructorEquals() {
         this.setup();
         assertEquals(tester.url, "http://test.com");
-        assertEquals(tester.startDate, "09/18/2018");
-        assertEquals(tester.endDate, "09/28/2018");
-        assertEquals(tester.time, "8000029");
-        assertEquals(tester.seating, "4");
         assertEquals(tester.dates.get(0).toString(), new DateImpl("09/18/2018", "8000029", "4").toString());
     }
 }

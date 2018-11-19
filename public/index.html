@@ -56,6 +56,10 @@
             box-shadow: 0 2px 6px rgba(0,0,0,.2),0 2px 3px rgba(0,0,0,.05);
         }
 
+        .ib {
+            display: inline-block;
+        }
+
     </style>
 
 </head>
@@ -68,7 +72,15 @@
         <ul id="fieldlist">
             <li>
                 <label>Event Name</label>
-                <input id="event_name" class="k-textbox" type="text" title="event name" style="width: 80%;"/>
+                <input id="event_name" class="k-textbox" type="text" title="event name" style="width: 86%;"/>
+            </li>
+            <li class="ib">
+                <label class="ib">Time</label>
+                <input class="ib" id="time_picker" value="10:00 AM" title="time picker"/>
+            </li>
+            <li class="ib">
+                <label class="ib">Size of party:</label>
+                <input class="ib" id="party_size" type="number" title="numeric" value="3" min="1" max="6" step="1" style="width:80px;"/>
             </li>
             <li>
                 <label>Days</label>
@@ -76,23 +88,44 @@
             </li>
             <li>
                 <label>Url</label>
-                <input id="url" class="k-textbox" type="url" title="url" style="width: 100%;"/>
-            </li>
-            <li>
-                <label>Size of party:</label>
-                <input id="party_size" type="number" title="numeric" value="3" min="1" max="6" step="1"/>
-            </li>
-            <li>
-                <label>Time</label>
-                <input id="time_picker" value="10:00 AM" title="time picker"/>
+                <input id="url" class="k-textbox" type="url" title="url" style="width: 86%;"/>
             </li>
             <li>
                 <button id="add_btn" class="k-primary">Primary Button</button>
             </li>
         </ul>
     </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
 </div>
 <script type="application/javascript" src="./dist/indexPage.js"></script>
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>

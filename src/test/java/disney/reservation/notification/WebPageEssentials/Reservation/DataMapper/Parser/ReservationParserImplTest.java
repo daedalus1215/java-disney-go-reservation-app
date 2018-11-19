@@ -3,6 +3,7 @@ package disney.reservation.notification.WebPageEssentials.Reservation.DataMapper
 
 import disney.reservation.notification.Adapter.Logger.Logger;
 import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.Parser.Exception.ReservationParserException;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
@@ -25,15 +26,16 @@ public class ReservationParserImplTest {
         ArrayList<JSONObject> mockObjects = tester.parse(directoryPath);
 
 
-        assertEquals("http://happy.com", mockObjects.get(0).get("url"));
-        assertEquals("12/31/2018", mockObjects.get(0).get("startDate"));
-        assertEquals("1/29/2019", mockObjects.get(0).get("endDate"));
-        assertEquals("2", mockObjects.get(0).get("seating"));
+        assertEquals("https://ohana-reservation-url-testing.com", mockObjects.get(0).get("url"));
+        JSONArray mockDates = (JSONArray) mockObjects.get(0).get("dates");
+        assertEquals("11/10/2018", mockDates.get(0));
+        assertEquals("4", mockObjects.get(0).get("partySize"));
 
-        assertEquals("http://happy.com", mockObjects.get(1).get("url"));
-        assertEquals("1/15/2019", mockObjects.get(1).get("startDate"));
-        assertEquals("1/30/2019", mockObjects.get(1).get("endDate"));
-        assertEquals("4", mockObjects.get(1).get("seating"));
+        assertEquals("https://ohana-reservation-url.com", mockObjects.get(1).get("url"));
+        JSONArray secondEventMockDates = (JSONArray) mockObjects.get(1).get("dates");
+        assertEquals("11/19/2018", secondEventMockDates.get(0));
+        assertEquals("https://ohana-reservation-url.com", mockObjects.get(1).get("url"));
+        assertEquals("3", mockObjects.get(1).get("partySize"));
 
     }
 

@@ -27,7 +27,7 @@ public class ReservationResolver implements ReservationResolverInterface {
     }
 
 
-    public void checkForAvailabilityAndEmail(ArrayList<ReservationEvent> reservationEvents, PageRequestor requestor) throws Exception {
+    public void checkForAvailabilityAndEmail(ArrayList<ReservationEvent> reservationEvents, PageRequestor requestor) throws IOException {
 
         // @todo: need to go through the ReservationEvents,
 //        reservationEvents

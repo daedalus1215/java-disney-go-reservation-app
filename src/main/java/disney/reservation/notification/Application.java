@@ -35,7 +35,7 @@ public class Application {
         try {
             PageRequestor pageRequestor = applicationContext.getBean(PageRequestor.class);
             ReservationDataMapper dataMapper = applicationContext.getBean(ReservationDataMapperImpl.class);
-            ArrayList<ReservationEvent> events = dataMapper.fetchReservationEvents();
+            ArrayList<ReservationEvent> events = dataMapper.load();
 
             // visit the site //@todo: moved this over to the Resolver.
 //            pageRequestor.visitWebPage(url);

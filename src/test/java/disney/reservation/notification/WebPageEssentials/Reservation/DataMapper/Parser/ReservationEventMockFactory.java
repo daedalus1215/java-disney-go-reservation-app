@@ -13,8 +13,9 @@ public class ReservationEventMockFactory {
         JSONObject ReservationEvent = mock(JSONObject.class);
         when(ReservationEvent.get("url")).thenReturn(url);
         when(ReservationEvent.get("startDate")).thenReturn(startDate);
-        when(ReservationEvent.get("endDate")).thenReturn(endDate);
+        when(ReservationEvent.get("2")).thenReturn(endDate);
         when(ReservationEvent.get("seating")).thenReturn(seating);
+        when(ReservationEvent.get("eventName")).thenReturn("testing-event-name");
         return ReservationEvent;
     }
 }

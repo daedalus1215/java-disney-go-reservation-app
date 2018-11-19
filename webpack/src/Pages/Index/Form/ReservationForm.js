@@ -11,7 +11,7 @@ export class ReservationForm {
         this.url = null;
         this.partySize = null;
         this.time = null;
-        
+
         let self = this;
 
         $("#party_size").kendoNumericTextBox();
@@ -22,17 +22,56 @@ export class ReservationForm {
             weekNumber: true,
         });
 
-        $("#time_picker").kendoTimePicker({
-            dateInput: true,
-        });
-
-
+        self.initTimePicker();
 
         $("#add_btn").kendoButton({
             icon: "check"
         });
 
         $("#add_btn").on("click", ReservationForm.processForm);
+    }
+
+    initTimePicker() {
+        $("#time_picker").kendoTimePicker({
+            dateInput: true,
+            scrollable: true
+        });
+        var listOfTimes = $("#time_picker_timeview");
+        // add extra times want...
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="80000717">Lunch</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="80000714">Dinner</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="7:00">7:00 AM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="7:30">7:30 AM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="8:00">8:00 AM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="8:30">8:30 AM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="9:00">9:00 AM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="9:30">9:30 AM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="10:00">10:00 AM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="10:30">10:30 AM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="11:00">11:00 AM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="11:30">11:30 AM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="12:00">12:00 PM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="12:30">12:30 PM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="13:00">1:00 PM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="13:30">1:30 PM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="14:00">2:00 PM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="14:30">2:30 PM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="15:00">3:00 PM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="15:30">3:30 PM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="16:00">4:00 PM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="16:30">4:30 PM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="17:00">5:00 PM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="17:30">5:30 PM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="18:00">6:00 PM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="18:30">6:30 PM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="19:00">7:00 PM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="19:30">7:30 PM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="20:00">8:00 PM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="20:30">8:30 PM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="21:00">9:00 PM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="21:30">9:30 PM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="22:00">10:00 PM</li>');
+        listOfTimes.append('<li tabindex="-1" role="option" class="k-item" unselectable="on" value="22:30">10:30 PM</li>');
     }
 
 
@@ -60,7 +99,7 @@ export class ReservationForm {
         var calendar = $("#calendar").data("kendoCalendar");
         var dates = calendar.selectDates();
 
-        dates.forEach(function(d) {
+        dates.forEach(function (d) {
             let date = kendo.toString(d, 'd');
             resFormContext.dates.push(date);
         });
