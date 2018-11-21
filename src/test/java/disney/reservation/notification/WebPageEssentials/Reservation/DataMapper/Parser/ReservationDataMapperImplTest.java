@@ -2,6 +2,7 @@ package disney.reservation.notification.WebPageEssentials.Reservation.DataMapper
 
 
 import MocksAndStubs.DateDataMapperStubFactory;
+import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.Parser.Exception.ReservationParserException;
 import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.ReservationDataMapperImpl;
 import disney.reservation.notification.WebPageEssentials.Reservation.Date.DataMapper.DateDataMapperImpl;
 import disney.reservation.notification.WebPageEssentials.Reservation.Entity.ReservationEvent;
@@ -26,7 +27,7 @@ public class ReservationDataMapperImplTest {
     }
 
     @Test
-    public void testLoadEquals() throws ParseException {
+    public void testLoadEquals() throws ParseException, ReservationParserException {
         this.setup();
         ArrayList<ReservationEvent> reservationEvents = this.tester.load();
         Assert.assertEquals(new DateImpl("10/12/2013", "10:00", "4").toString(), reservationEvents.get(0).dates.get(0).toString());

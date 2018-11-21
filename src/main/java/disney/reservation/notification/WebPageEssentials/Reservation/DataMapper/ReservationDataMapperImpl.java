@@ -26,7 +26,7 @@ public class ReservationDataMapperImpl  implements ReservationDataMapper{
         this.dateDataMapper = dateDataMapper;
     }
 
-    public ArrayList<ReservationEvent> load() throws java.text.ParseException {
+    public ArrayList<ReservationEvent> load() throws java.text.ParseException, ReservationParserException {
         try {
             ArrayList<JSONObject> jsonReservationEvents = reservationParser.parse(this.locationOfReservations);
             for(JSONObject jsonReservationEvent:jsonReservationEvents) {
@@ -43,9 +43,7 @@ public class ReservationDataMapperImpl  implements ReservationDataMapper{
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {
-            e.printStackTrace();
-        } catch (ReservationParserException e) {
-            e.printStackTrace();
+            throw new ReservationParserException("Invalid format for the Reservation Event: " + e.getMessage());
         }
 
         return this.reservationEvents;

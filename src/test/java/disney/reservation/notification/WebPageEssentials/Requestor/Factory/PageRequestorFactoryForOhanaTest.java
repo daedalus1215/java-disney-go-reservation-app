@@ -13,7 +13,7 @@ class PageRequestorFactoryForOhanaTest {
         PageRequestorFactoryForOhana tester = new PageRequestorFactoryForOhana();
         PageRequestor mockRequestor = tester.createPageRequestor();
 
-        assertEquals("PageRequestor{url='https://disneyworld.disney.go.com/dining/polynesian-resort/ohana/', webClient=class com.gargoylesoftware.htmlunit.WebClient}", mockRequestor.toString());
+        assertEquals("PageRequestor{url='null', webClient=class com.gargoylesoftware.htmlunit.WebClient}", mockRequestor.toString());
     }
 
 }

@@ -14,7 +14,6 @@ public class PageRequestor implements PageRequestorInterface {
 
 
     public PageRequestor(WebClient webClient) {
-        this.url = url;
         this.webClient = webClient;
     }
 

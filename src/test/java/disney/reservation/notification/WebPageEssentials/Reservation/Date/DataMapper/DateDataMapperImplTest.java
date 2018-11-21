@@ -3,6 +3,7 @@ package disney.reservation.notification.WebPageEssentials.Reservation.Date.DataM
 
 import disney.reservation.notification.WebPageEssentials.Reservation.Entity.ValueObject.Date;
 import disney.reservation.notification.WebPageEssentials.Reservation.Entity.ValueObject.DateImpl;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
@@ -34,16 +35,19 @@ class DateDataMapperImplTest {
     void load() throws ParseException {
         this.setup();
         JSONObject mockDatesDTO = new JSONObject();
-        mockDatesDTO.put("dates", "[\"12/13/2013\", \"12/14/2013\"]");
+        ArrayList<String> datesArray = new ArrayList<>();
+        datesArray.add("12/13/2013");
+        datesArray.add("12/14/2013");
+        mockDatesDTO.put("dates", datesArray);
         mockDatesDTO.put("time", "10:00");
-        mockDatesDTO.put("seating", "1");
+        mockDatesDTO.put("partySize", "1");
 
         ArrayList<Date> dates = this.tester.load(mockDatesDTO);
+
         Assert.assertEquals("12/13/2013", dates.get(0).getDate());
         Assert.assertEquals("10:00", dates.get(0).getTime());
         Assert.assertEquals("1", dates.get(0).getSeating());
 
         Assert.assertEquals("12/14/2013", dates.get(1).getDate());
     }
-
 }

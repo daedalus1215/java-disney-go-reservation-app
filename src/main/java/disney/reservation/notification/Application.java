@@ -2,6 +2,7 @@ package disney.reservation.notification;
 
 import disney.reservation.notification.Adapter.Logger.InfoLoggerAdapter;
 import disney.reservation.notification.WebPageEssentials.Requestor.PageRequestor;
+import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.Parser.Exception.ReservationParserException;
 import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.ReservationDataMapper;
 import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.ReservationDataMapperImpl;
 import disney.reservation.notification.WebPageEssentials.Reservation.Entity.ReservationEvent;
@@ -46,6 +47,8 @@ public class Application {
 
         } catch (Exception e) {
             logger.info("Exception thrown: " + e.getMessage());
+            e.printStackTrace();
+        } catch (ReservationParserException e) {
             e.printStackTrace();
         }
     }

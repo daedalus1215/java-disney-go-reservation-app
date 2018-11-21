@@ -57,4 +57,9 @@ public class NotificationContext {
             return new ReservationResolver(mailerAdapter, htmlElementReferrer, logger);
     }
 
+    @Bean("disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.Parser.ReservationParser")
+    public ReservationParser ReservationParser() {
+        InfoLoggerAdapter logger = applicationContext.getBean(InfoLoggerAdapter.class, "Logger");
+        return new ReservationParserImpl(logger);
+    }
 }
