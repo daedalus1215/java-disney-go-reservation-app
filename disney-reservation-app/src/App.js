@@ -55,7 +55,6 @@ export default function BasicExample() {
     </Router>
   );
 }
-
 // You can think of these components as "pages"
 // in your app.
 
