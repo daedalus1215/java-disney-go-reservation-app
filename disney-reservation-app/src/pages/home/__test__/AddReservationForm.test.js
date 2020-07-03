@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import AddReservationForm from "../AddReservationForm";
+import AddReservationForm from "../form/AddReservationForm";
 
 test("should render AddReservationForm", () => {
   // Arrange
