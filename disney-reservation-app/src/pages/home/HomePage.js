@@ -1,12 +1,15 @@
 import React from 'react';
-import ReservationEventListView from './ReservationEventListView';
-import AddReservationForm from './AddReservationForm';
+import ReservationEventListView from './listview/ReservationEventListView';
+import AddReservationForm from './form/AddReservationForm';
+import styles from './HomePage.module.css';
 
 const HomePage = () => {
     return <div>
         HomePage!
-        <ReservationEventListView />
-        <AddReservationForm />
+        <div className={styles.page}>
+            <ReservationEventListView />
+            <AddReservationForm />
+        </div>
     </div>
 };
 
