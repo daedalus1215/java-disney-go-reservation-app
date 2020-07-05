@@ -7,19 +7,19 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'build')));
 
-require('./backend/api/routes')(app);
-require('./backend/api/errors')(app);
+require('./src/application/utils/routes')(app);
+require('./src/application/utils/errors')(app);
 
 
 
-async function startServer() {    
-  app.listen(process.env.PORT, err => {
-    if (err) {
-      console.log(err);
-      return;
-    }
-    console.log(`Your server is ready !`);
-  });
+async function startServer() {
+    app.listen(process.env.PORT, err => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        console.log(`Your server is ready !`);
+    });
 }
 
 // Run the async function to start our server
