@@ -2,15 +2,15 @@ package disney.reservation.notification.WebPageEssentials.Reservation.DataMapper
 
 
 import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.Parser.Exception.ReservationParserException;
-import disney.reservation.notification.WebPageEssentials.Reservation.Date.DataMapper.DateDataMapper;
-import disney.reservation.notification.WebPageEssentials.Reservation.Entity.ValueObject.Date;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.ParseException;
 import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.Parser.ReservationParser;
+import disney.reservation.notification.WebPageEssentials.Reservation.Date.DataMapper.DateDataMapper;
 import disney.reservation.notification.WebPageEssentials.Reservation.Entity.ReservationEvent;
+import disney.reservation.notification.WebPageEssentials.Reservation.Entity.ValueObject.Date;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.util.ArrayList;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
 
 
 public class ReservationDataMapperImpl  implements ReservationDataMapper{
@@ -21,7 +21,10 @@ public class ReservationDataMapperImpl  implements ReservationDataMapper{
 
 
     public ReservationDataMapperImpl(ReservationParser reservationParser, DateDataMapper dateDataMapper) {
-        this.locationOfReservations = FileSystems.getDefault().getPath("").toAbsolutePath().toString();
+        this.locationOfReservations = FileSystems.getDefault()
+            .getPath("")
+            .toAbsolutePath()
+            .toString();
         this.reservationParser = reservationParser;
         this.dateDataMapper = dateDataMapper;
     }
