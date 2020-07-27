@@ -1,8 +1,8 @@
 package disney.reservation.notification.WebPageEssentials;
 
 
-import disney.reservation.notification.Adapter.Logger.InfoLoggerAdapter;
-import disney.reservation.notification.Adapter.MailerAdapter;
+import disney.reservation.notification.infrastructure.log.InfoLoggerAdapter;
+import disney.reservation.notification.domain.mail.MailerAdapter;
 import disney.reservation.notification.WebPageEssentials.Reference.HtmlElementReferrer;
 import disney.reservation.notification.WebPageEssentials.Requestor.PageRequestor;
 import com.gargoylesoftware.htmlunit.html.*;
@@ -12,7 +12,6 @@ import org.w3c.dom.html.HTMLDivElement;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 
 public class ReservationResolverImpl implements ReservationResolver {

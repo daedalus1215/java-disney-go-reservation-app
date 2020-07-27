@@ -1,7 +1,7 @@
 package disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.Parser;
 
-import disney.reservation.notification.Adapter.Logger.Logger;
 import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.Parser.Exception.ReservationParserException;
+import disney.reservation.notification.domain.log.Logger;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FilenameFilter;
@@ -14,7 +14,7 @@ import org.json.simple.parser.ParseException;
 
 public class ReservationParserImpl implements ReservationParser {
     private ArrayList<JSONObject> dataHolder = new ArrayList<>();
-    private Logger loggerAdapter = null;
+    private Logger loggerAdapter;
 
     public ReservationParserImpl(Logger loggerAdapter) {
         this.loggerAdapter = loggerAdapter;

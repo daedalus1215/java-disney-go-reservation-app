@@ -1,4 +1,4 @@
-package disney.reservation.notification.Adapter;
+package disney.reservation.notification.domain.mail;
 
 import javax.mail.MessagingException;
 

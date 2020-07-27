@@ -1,11 +1,11 @@
-package disney.reservation.notification.Adapter.Logger;
+package disney.reservation.notification.infrastructure.log;
 
 import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-public class InfoLoggerAdapter implements disney.reservation.notification.Adapter.Logger.Logger {
+public class InfoLoggerAdapter implements disney.reservation.notification.domain.log.Logger {
     private Logger logger;
     private FileHandler fileHandler;
 

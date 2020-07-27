@@ -3,8 +3,8 @@ package disney.reservation.notification.WebPageEssentials;
 import static org.mockito.Mockito.mock;
 
 import MocksAndStubs.PageRequestorStubFactory;
-import disney.reservation.notification.Adapter.Logger.InfoLoggerAdapter;
-import disney.reservation.notification.Adapter.MailerAdapter;
+import disney.reservation.notification.infrastructure.log.InfoLoggerAdapter;
+import disney.reservation.notification.domain.mail.MailerAdapter;
 import disney.reservation.notification.WebPageEssentials.Reference.HtmlElementReferrer;
 import disney.reservation.notification.WebPageEssentials.Reservation.Entity.ReservationEvent;
 import disney.reservation.notification.WebPageEssentials.Reservation.Entity.ValueObject.Date;
