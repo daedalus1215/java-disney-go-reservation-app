@@ -1,4 +1,4 @@
-package disney.reservation.notification.Adapter;
+package disney.reservation.notification.infrastructure.mail;
 
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;

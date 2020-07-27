@@ -1,30 +1,30 @@
 package disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.Parser;
 
 
-import disney.reservation.notification.Adapter.Logger.Logger;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotSame;
+import static org.mockito.Mockito.mock;
+
 import disney.reservation.notification.WebPageEssentials.Reservation.DataMapper.Parser.Exception.ReservationParserException;
+import disney.reservation.notification.domain.log.Logger;
+import java.nio.file.FileSystems;
+import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-
-import java.nio.file.FileSystems;
-import java.util.ArrayList;
-
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
 
 
 public class ReservationParserImplTest {
 
 
     @Test
-    public void testParseEquals() throws Exception, ReservationParserException {
-        String directoryPath = FileSystems.getDefault().getPath("").toAbsolutePath().toString() + "/src/test/java/disney/reservation/notification/WebPageEssentials/reservation/DataMapper/Parser";
+    public void testParseEquals() {
+        String directoryPath = FileSystems.getDefault().getPath("").toAbsolutePath().toString()
+            + "/src/test/java/disney/reservation/notification/WebPageEssentials/reservation/DataMapper/Parser";
         Logger stubLogger = mock(Logger.class);
         ReservationParserImpl tester = new ReservationParserImpl(stubLogger);
         ArrayList<JSONObject> mockObjects = tester.parse(directoryPath);
-
 
         assertEquals("https://ohana-reservation-url-testing.com", mockObjects.get(0).get("url"));
         JSONArray mockDates = (JSONArray) mockObjects.get(0).get("dates");
