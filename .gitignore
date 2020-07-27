@@ -3,3 +3,5 @@ out/*
 .idea/workspace.xml
 webpack/node_modules/*
 public/dist/*
+target/*
+.idea/*
