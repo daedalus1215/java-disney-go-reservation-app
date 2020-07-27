@@ -5,12 +5,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.io.IOException;
 import org.junit.jupiter.api.Test;
 
-class UserCredentialConfigTest {
+class AppConfigTest {
 
   @Test
   public void constructor_willConfigWithoutException() throws IOException {
     // Arrange
-    final UserCredentialConfig target = new UserCredentialConfig();
+    final AppConfig target = new AppConfig();
 
     // Act
 
@@ -20,7 +20,7 @@ class UserCredentialConfigTest {
   @Test
   public void getDatabaseUser_willReturnUserNameFromConfig() throws IOException {
     // Arrange
-    final UserCredentialConfig target = new UserCredentialConfig();
+    final AppConfig target = new AppConfig();
     String expected = "admin.user";
 
     // Act
@@ -33,7 +33,7 @@ class UserCredentialConfigTest {
   @Test
   public void getDbPassword_willReturnUserPasswordFromConfig() throws IOException {
     // Arrange
-    final UserCredentialConfig target = new UserCredentialConfig();
+    final AppConfig target = new AppConfig();
     String expected = "admin.password";
 
     // Act
@@ -46,7 +46,7 @@ class UserCredentialConfigTest {
   @Test
   public void getDb_willReturnDbFromConfig() throws IOException {
     // Arrange
-    final UserCredentialConfig target = new UserCredentialConfig();
+    final AppConfig target = new AppConfig();
     String expected = "reservations";
 
     // Act
@@ -59,7 +59,7 @@ class UserCredentialConfigTest {
   @Test
   public void getDbHost_willReturnDbHostFromConfig() throws IOException {
     // Arrange
-    final UserCredentialConfig target = new UserCredentialConfig();
+    final AppConfig target = new AppConfig();
     String expected = "localhost";
 
     // Act
@@ -72,7 +72,7 @@ class UserCredentialConfigTest {
   @Test
   public void getDbPort_willReturnDbPortFromConfig() throws IOException {
     // Arrange
-    final UserCredentialConfig target = new UserCredentialConfig();
+    final AppConfig target = new AppConfig();
     String expected = "27018";
 
     // Act
@@ -85,7 +85,7 @@ class UserCredentialConfigTest {
   @Test
   public void getEmailUsername_willReturnEmailUsernameFromConfig() throws IOException {
     // Arrange
-    final UserCredentialConfig target = new UserCredentialConfig();
+    final AppConfig target = new AppConfig();
     String expected = "emailAccountWeWillSendFrom";
 
     // Act
@@ -98,7 +98,7 @@ class UserCredentialConfigTest {
   @Test
   public void getEmailPassword_willReturnEmailPasswordFromConfig() throws IOException {
     // Arrange
-    final UserCredentialConfig target = new UserCredentialConfig();
+    final AppConfig target = new AppConfig();
     String expected = "emailAccountPassword";
 
     // Act
@@ -111,7 +111,7 @@ class UserCredentialConfigTest {
   @Test
   public void getRecipient_willReturnRecipientFromConfig() throws IOException {
     // Arrange
-    final UserCredentialConfig target = new UserCredentialConfig();
+    final AppConfig target = new AppConfig();
     String expected = "phoneNumberWeWillText/Email";
 
     // Act
