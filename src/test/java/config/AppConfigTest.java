@@ -73,10 +73,10 @@ class AppConfigTest {
   public void getDbPort_willReturnDbPortFromConfig() throws IOException {
     // Arrange
     final AppConfig target = new AppConfig();
-    String expected = "27018";
+    final String expected = "27018";
 
     // Act
-    String actual = target.getDbPort();
+    final String actual = target.getDbPort();
 
     // Assert
     assertEquals(expected, actual);

@@ -4,10 +4,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Properties;
+import org.springframework.context.annotation.Configuration;
 
-/**
-* Template for a user credential config: Required by the Disney.Reservation.Notification.Adapter.MailerAdapter
-*/
+@Configuration
 public final class AppConfig {
     final private String PROPERTY_FILE = "app.properties";
     final private String RESOURCE_DIRECTORY = Objects.requireNonNull(Thread.currentThread()
