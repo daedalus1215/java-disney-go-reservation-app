@@ -15,6 +15,9 @@ import disney.reservation.notification.domain.WebPageEssentials.ReservationResol
 import disney.reservation.notification.domain.WebPageEssentials.ReservationResolverImpl;
 import disney.reservation.notification.domain.log.Logger;
 import disney.reservation.notification.domain.mail.Mailer;
+import disney.reservation.notification.domain.reservations.assemblers.ReservationEventAssembler;
+import disney.reservation.notification.domain.reservations.assemblers.ReservationEventAssemblerFactory;
+import disney.reservation.notification.domain.utils.DateDifference;
 import disney.reservation.notification.infrastructure.log.InfoLoggerAdapter;
 import disney.reservation.notification.infrastructure.mail.MailerAdapter;
 import disney.reservation.notification.infrastructure.mongo.MongoDatabaseConnectionFactory;
@@ -57,6 +60,18 @@ public class NotificationContext {
     @Bean
     public ReservationRepository registerReservationRepository() throws Exception {
         return new ReservationRepository(registerMongoDatabase());
+    }
+
+    @Bean
+    public DateDifference registerDateDifference() {
+        final InfoLoggerAdapter logger = registerLoggerAdapter();
+        return new DateDifference(logger);
+    }
+
+    @Bean
+    public ReservationEventAssembler registerReservationEventAssembler() throws Exception {
+        final DateDifference dateDifference = registerDateDifference();
+        return new ReservationEventAssemblerFactory(dateDifference).getObject();
     }
 
     @Bean
