@@ -3,8 +3,7 @@ package disney.reservation.notification.infrastructure.reservations;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import disney.reservation.notification.application.NotificationContext;
-import disney.reservation.notification.domain.reservations.Reservation;
-import org.junit.jupiter.api.BeforeAll;
+import disney.reservation.notification.domain.reservations.entities.Reservation;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
@@ -42,7 +41,9 @@ class ReservationRepositoryIntegrationTest {
 
   @Test
   public void fetchAll_shouldReturnExpectedReservation() {
+    // Arrange
 
+    // Act
     final Reservation actual = target.fetchAll()
         .get(0);
 
