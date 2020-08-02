@@ -4,10 +4,8 @@ import com.gargoylesoftware.htmlunit.Page;
 import com.gargoylesoftware.htmlunit.html.HtmlButton;
 import com.gargoylesoftware.htmlunit.html.HtmlDateInput;
 import com.gargoylesoftware.htmlunit.html.HtmlSelect;
-import disney.reservation.notification.WebPageEssentials.Reference.HtmlElementReferrer;
-import disney.reservation.notification.WebPageEssentials.Requestor.PageRequestor;
-
-import java.io.IOException;
+import disney.reservation.notification.domain.WebPageEssentials.Reference.HtmlElementReferrer;
+import disney.reservation.notification.domain.WebPageEssentials.Requestor.PageRequestor;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
