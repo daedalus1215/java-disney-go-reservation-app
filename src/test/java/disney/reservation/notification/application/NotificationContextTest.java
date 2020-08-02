@@ -5,8 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
 import config.AppConfig;
-import disney.reservation.notification.domain.reservations.assemblers.ReservationEventAssembler;
+import disney.reservation.notification.domain.reservations.assemblers.EventAssembler;
 import disney.reservation.notification.domain.utils.DateDifference;
+import disney.reservation.notification.domain.utils.GetNextDate;
 import disney.reservation.notification.infrastructure.log.InfoLoggerAdapter;
 import disney.reservation.notification.infrastructure.reservations.ReservationRepository;
 import java.io.IOException;
@@ -99,7 +100,18 @@ class NotificationContextTest {
     // Arrange
 
     // Act
-    final ReservationEventAssembler actual = this.target.registerReservationEventAssembler();
+    final EventAssembler actual = this.target.registerReservationEventAssembler();
+
+    // Assert
+    assertNotNull(actual);
+  }
+
+  @Test
+  void registerGetNextDate_shouldReturnReservationEventAssembler() {
+    // Arrange
+
+    // Act
+    final GetNextDate actual = this.target.registerGetNextDate();
 
     // Assert
     assertNotNull(actual);

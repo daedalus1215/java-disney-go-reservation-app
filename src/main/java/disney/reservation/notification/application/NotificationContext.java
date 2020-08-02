@@ -15,9 +15,10 @@ import disney.reservation.notification.domain.WebPageEssentials.ReservationResol
 import disney.reservation.notification.domain.WebPageEssentials.ReservationResolverImpl;
 import disney.reservation.notification.domain.log.Logger;
 import disney.reservation.notification.domain.mail.Mailer;
-import disney.reservation.notification.domain.reservations.assemblers.ReservationEventAssembler;
-import disney.reservation.notification.domain.reservations.assemblers.ReservationEventAssemblerFactory;
+import disney.reservation.notification.domain.reservations.assemblers.EventAssembler;
+import disney.reservation.notification.domain.reservations.assemblers.EventAssemblerFactory;
 import disney.reservation.notification.domain.utils.DateDifference;
+import disney.reservation.notification.domain.utils.GetNextDate;
 import disney.reservation.notification.infrastructure.log.InfoLoggerAdapter;
 import disney.reservation.notification.infrastructure.mail.MailerAdapter;
 import disney.reservation.notification.infrastructure.mongo.MongoDatabaseConnectionFactory;
@@ -64,14 +65,21 @@ public class NotificationContext {
 
     @Bean
     public DateDifference registerDateDifference() {
-        final InfoLoggerAdapter logger = registerLoggerAdapter();
-        return new DateDifference(logger);
+        return new DateDifference(registerLoggerAdapter());
+    }
+
+    //@TODO: Need to test this factory/egistry
+    @Bean
+    public GetNextDate registerGetNextDate() {
+        return new GetNextDate(this.registerLoggerAdapter());
     }
 
     @Bean
-    public ReservationEventAssembler registerReservationEventAssembler() throws Exception {
+    public EventAssembler registerReservationEventAssembler() throws Exception {
         final DateDifference dateDifference = registerDateDifference();
-        return new ReservationEventAssemblerFactory(dateDifference).getObject();
+        final GetNextDate getNextDate = registerGetNextDate();
+
+        return new EventAssemblerFactory(dateDifference, getNextDate).getObject();
     }
 
     @Bean
