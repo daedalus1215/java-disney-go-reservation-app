@@ -60,4 +60,6 @@ class CheckForReservationAndEmailTest {
     // Assert
     verify(mockReservationResolver).checkForAvailabilityAndEmail(events, mockPageRequestor);
   }
+
+  //@TODO: Write test for the exception case
 }
