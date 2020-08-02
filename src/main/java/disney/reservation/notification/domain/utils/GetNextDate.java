@@ -2,7 +2,7 @@ package disney.reservation.notification.domain.utils;
 
 import static java.util.Locale.ENGLISH;
 
-import disney.reservation.notification.infrastructure.log.InfoLoggerAdapter;
+import disney.reservation.notification.domain.log.Logger;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -11,9 +11,9 @@ import java.util.function.BiFunction;
 
 public class GetNextDate implements BiFunction<String, Integer, String> {
 
-  private final InfoLoggerAdapter logger;
+  private final Logger logger;
 
-  public GetNextDate(InfoLoggerAdapter logger) {
+  public GetNextDate(Logger logger) {
     this.logger = logger;
   }
 

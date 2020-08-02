@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
 import config.AppConfig;
+import disney.reservation.notification.domain.log.Logger;
 import disney.reservation.notification.domain.reservations.assemblers.EventAssembler;
 import disney.reservation.notification.domain.utils.DateDifference;
 import disney.reservation.notification.domain.utils.GetNextDate;
@@ -34,7 +35,7 @@ class NotificationContextTest {
     // Arrange
 
     // Act
-    final InfoLoggerAdapter actual = target.registerLoggerAdapter();
+    final Logger actual = target.registerLoggerAdapter();
 
     // Assert
     assertNotNull(actual);

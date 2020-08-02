@@ -1,13 +1,12 @@
 package disney.reservation.notification.domain.WebPageEssentials;
 
 
-import disney.reservation.notification.domain.WebPageEssentials.Requestor.PageRequestor;
-import disney.reservation.notification.domain.WebPageEssentials.Reservation.Entity.ReservationEvent;
-
-
-import java.util.ArrayList;
+import disney.reservation.notification.domain.WebPageEssentials.Requestor.PageRequestorInterface;
+import disney.reservation.notification.domain.reservations.value_objects.Event;
+import java.util.List;
 
 public interface ReservationResolver {
-    void checkForAvailabilityAndEmail(ArrayList<ReservationEvent> reservationEvents,
-                                      PageRequestor requestor) throws Exception;
+
+    void checkForAvailabilityAndEmail(List<Event> reservationEvents,
+        PageRequestorInterface requestor) throws Exception;
 }
