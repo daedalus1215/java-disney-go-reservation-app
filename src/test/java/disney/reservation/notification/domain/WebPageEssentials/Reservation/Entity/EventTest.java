@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ReservationEventTest {
+class EventTest {
 
     private ReservationEvent tester;
 
