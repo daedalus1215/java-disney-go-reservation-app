@@ -3,7 +3,7 @@ package disney.reservation.notification.domain.utils;
 import static java.lang.Math.toIntExact;
 import static java.util.Locale.ENGLISH;
 
-import disney.reservation.notification.infrastructure.log.InfoLoggerAdapter;
+import disney.reservation.notification.domain.log.Logger;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,9 +12,9 @@ import java.util.function.BiFunction;
 
 public class DateDifference implements BiFunction<String, String, Integer> {
 
-  private final InfoLoggerAdapter logger;
+  private final Logger logger;
 
-  public DateDifference(InfoLoggerAdapter infoLoggerAdapter) {
+  public DateDifference(Logger infoLoggerAdapter) {
     this.logger = infoLoggerAdapter;
   }
 

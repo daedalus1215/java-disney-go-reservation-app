@@ -1,78 +1,82 @@
 package disney.reservation.notification.domain.WebPageEssentials;
 
 
-import disney.reservation.notification.infrastructure.log.InfoLoggerAdapter;
-import disney.reservation.notification.domain.mail.Mailer;
+import com.gargoylesoftware.htmlunit.html.HtmlButton;
+import com.gargoylesoftware.htmlunit.html.HtmlInput;
+import com.gargoylesoftware.htmlunit.html.HtmlOption;
+import com.gargoylesoftware.htmlunit.html.HtmlSelect;
 import disney.reservation.notification.domain.WebPageEssentials.Reference.HtmlElementReferrer;
 import disney.reservation.notification.domain.WebPageEssentials.Requestor.PageRequestor;
-import com.gargoylesoftware.htmlunit.html.*;
+import disney.reservation.notification.domain.WebPageEssentials.Requestor.PageRequestorInterface;
 import disney.reservation.notification.domain.WebPageEssentials.Reservation.Entity.ReservationEvent;
 import disney.reservation.notification.domain.WebPageEssentials.Reservation.Entity.ValueObject.Date;
-import org.w3c.dom.html.HTMLDivElement;
-
+import disney.reservation.notification.domain.log.Logger;
+import disney.reservation.notification.domain.mail.Mailer;
+import disney.reservation.notification.domain.reservations.value_objects.Event;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
+import org.w3c.dom.html.HTMLDivElement;
 
 
 public class ReservationResolverImpl implements ReservationResolver {
     private Mailer mailer;
     private HtmlElementReferrer htmlElementReferrer;
-    private InfoLoggerAdapter infoLoggerAdapter;
+    private Logger logger;
 
 
     public ReservationResolverImpl(Mailer mailer,
-                                   HtmlElementReferrer htmlElementReferrer,
-                                   InfoLoggerAdapter infoLoggerAdapter) {
+        HtmlElementReferrer htmlElementReferrer,
+        Logger logger) {
         this.mailer = mailer;
         this.htmlElementReferrer = htmlElementReferrer;
-        this.infoLoggerAdapter = infoLoggerAdapter;
+        this.logger = logger;
     }
 
 
-    public void checkForAvailabilityAndEmail(ArrayList<ReservationEvent> reservationEvents,
-                                             PageRequestor requestor) throws Exception {
-
-        for (ReservationEvent event : reservationEvents) {
-
-            this.tryToConnectToEventsWebpage(requestor, event);
-
-            for (Date date : event.dates) { //@todo: what if there are no dates - throw an exception - or ensure that it won't happen.
-                this.setDateFieldForReservation(requestor, date);
-
-                this.setTimeFieldForReservation(requestor, date);
-
-                this.setPartySizeForReservation(requestor, date);
-
-                this.submitForm(requestor);
-
-                try {
-                    //@todo: troubleshooting right here, some reason there is an issue with validating a return.
-                    this.sendMessage(this.getReservationIfAvailable(requestor));
-
-                } catch (Exception e) {
-                    this.infoLoggerAdapter.info("NO, current availabilities around: "
-                            + "\n Reservation Name: " + event.name
-                            + "\n Event Date: " + date.getDate()
-                            + "\n Event Time: " + date.getTime()
-                            + "\n Seating: " + date.getSeating());
-                } finally {
-                    requestor.close();
-                }
-            }
-        }
+    public void checkForAvailabilityAndEmail(List<Event> reservationEvents,
+        PageRequestorInterface requestor) throws Exception {
+//
+//        for (ReservationEvent event : reservationEvents) {
+//
+//            this.tryToConnectToEventsWebpage(requestor, event);
+//
+//            for (Date date : event.dates) { //@todo: what if there are no dates - throw an exception - or ensure that it won't happen.
+//                this.setDateFieldForReservation(requestor, date);
+//
+//                this.setTimeFieldForReservation(requestor, date);
+//
+//                this.setPartySizeForReservation(requestor, date);
+//
+//                this.submitForm(requestor);
+//
+//                try {
+//                    //@todo: troubleshooting right here, some reason there is an issue with validating a return.
+//                    this.sendMessage(this.getReservationIfAvailable(requestor));
+//
+//                } catch (Exception e) {
+//                    this.infoLoggerAdapter.info("NO, current availabilities around: "
+//                            + "\n Reservation Name: " + event.name
+//                            + "\n Event Date: " + date.getDate()
+//                            + "\n Event Time: " + date.getTime()
+//                            + "\n Seating: " + date.getSeating());
+//                } finally {
+//                    requestor.close();
+//                }
+//            }
+//        }
     }
 
 
     /**
-     *
      * @param requestor
      * @param event
      */
-    private void tryToConnectToEventsWebpage(PageRequestor requestor, ReservationEvent event) throws Exception {
+    private void tryToConnectToEventsWebpage(PageRequestor requestor, ReservationEvent event)
+        throws Exception {
         try {
             requestor.visitWebPage(event.url);
         } catch (IOException exception) {
-           throw new Exception("WebClient issue with connecting to: " + event.url);
+            throw new Exception("WebClient issue with connecting to: " + event.url);
         }
     }
 
@@ -147,9 +151,11 @@ public class ReservationResolverImpl implements ReservationResolver {
      * @throws Exception
      */
     private void sendMessage(HTMLDivElement diningReservationInfoTitleDiv) throws Exception {
-        this.infoLoggerAdapter.info("ReservationEntity potential alert: " + diningReservationInfoTitleDiv.getTextContent());
+        this.logger.info(
+            "ReservationEntity potential alert: " + diningReservationInfoTitleDiv.getTextContent());
         this.mailer
-            .setSubjectAndBody("ReservationEntity potential alert: ", "For the day and time: " + diningReservationInfoTitleDiv.getTextContent());
+            .setSubjectAndBody("ReservationEntity potential alert: ",
+                "For the day and time: " + diningReservationInfoTitleDiv.getTextContent());
         this.mailer.sendMessage();
     }
 }
