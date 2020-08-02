@@ -1,6 +1,6 @@
 package disney.reservation.notification.domain.reservations.value_objects;
 
-final public class ReservationEvent {
+final public class Event {
 
   final private String name;
   final private String url;
@@ -8,7 +8,7 @@ final public class ReservationEvent {
   final private String date;
   final private String time;
 
-  public ReservationEvent(String name, String url, int partySize, String date, String time) {
+  public Event(String name, String url, int partySize, String date, String time) {
     this.name = name;
     this.url = url;
     this.partySize = partySize;
@@ -35,4 +35,6 @@ final public class ReservationEvent {
   public String getTime() {
     return time;
   }
+
+
 }
