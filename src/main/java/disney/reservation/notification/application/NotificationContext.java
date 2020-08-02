@@ -6,6 +6,7 @@ import com.mongodb.client.MongoDatabase;
 import config.AppConfig;
 import disney.reservation.notification.domain.WebPageEssentials.Reference.HtmlElementReferrer;
 import disney.reservation.notification.domain.WebPageEssentials.Requestor.PageRequestor;
+import disney.reservation.notification.domain.WebPageEssentials.Requestor.PageRequestorInterface;
 import disney.reservation.notification.domain.WebPageEssentials.Reservation.DataMapper.Parser.ReservationParser;
 import disney.reservation.notification.domain.WebPageEssentials.Reservation.DataMapper.Parser.ReservationParserImpl;
 import disney.reservation.notification.domain.WebPageEssentials.Reservation.DataMapper.ReservationDataMapper;
@@ -38,7 +39,7 @@ public class NotificationContext {
     private ApplicationContext applicationContext;
 
     @Bean
-    public InfoLoggerAdapter registerLoggerAdapter() {
+    public Logger registerLoggerAdapter() {
         return new InfoLoggerAdapter();
     }
 
@@ -92,20 +93,20 @@ public class NotificationContext {
 
     @Bean("disney.reservation.notification.domain.WebPageEssentials.Reservation.DataMapper.ReservationDataMapperImpl")
     public ReservationDataMapper ReservationDataMapperImpl() {
-        Logger logger = applicationContext.getBean(InfoLoggerAdapter.class, "Logger");
+        Logger logger = applicationContext.getBean(Logger.class, "Logger");
         ReservationParser parser = new ReservationParserImpl(logger);
         return new ReservationDataMapperImpl(parser, new DateDataMapperImpl());
     }
 
     @Bean()
-    public PageRequestor PageRequestor() {
+    public PageRequestorInterface PageRequestor() {
         WebClient webClient = new WebClient();
         return new PageRequestor(webClient);
     }
 
     @Bean()
     public ReservationResolver ReservationResolver() throws MessagingException {
-        InfoLoggerAdapter logger = applicationContext.getBean(InfoLoggerAdapter.class);
+        Logger logger = applicationContext.getBean(Logger.class);
         Mailer mailer = applicationContext.getBean(Mailer.class);
         HtmlElementReferrer htmlElementReferrer = new HtmlElementReferrer();
         return new ReservationResolverImpl(mailer, htmlElementReferrer, logger);
@@ -113,7 +114,7 @@ public class NotificationContext {
 
     @Bean()
     public ReservationParser ReservationParser() {
-        InfoLoggerAdapter logger = applicationContext.getBean(InfoLoggerAdapter.class, "Logger");
+        Logger logger = applicationContext.getBean(Logger.class);
         return new ReservationParserImpl(logger);
     }
 }
