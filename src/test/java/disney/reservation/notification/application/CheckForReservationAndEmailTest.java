@@ -1,6 +1,7 @@
 package disney.reservation.notification.application;
 
 import static java.util.Arrays.asList;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -60,6 +61,4 @@ class CheckForReservationAndEmailTest {
     // Assert
     verify(mockReservationResolver).checkForAvailabilityAndEmail(events, mockPageRequestor);
   }
-
-  //@TODO: Write test for the exception case
 }
