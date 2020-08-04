@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * ReservationEvent, it should have the URL, the dates, and a name associated with every ReservationEvent.
  */
-public class ReservationEvent {
+public class Event {
     /**
      * @var url: the url for the reservation.
      */
@@ -26,8 +26,8 @@ public class ReservationEvent {
      * Not sure if we even need this.
      * @return ReservationEvent
      */
-    public ReservationEvent clone() {
-        ReservationEvent newEvent = new ReservationEvent();
+    public Event clone() {
+        Event newEvent = new Event();
         newEvent.url = this.url;
         newEvent.name = this.name;
         newEvent.dates = this.dates;

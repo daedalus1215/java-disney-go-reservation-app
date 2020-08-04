@@ -1,6 +1,5 @@
 package disney.reservation.notification.application;
 
-import disney.reservation.notification.domain.WebPageEssentials.Requestor.PageRequestor;
 import disney.reservation.notification.domain.WebPageEssentials.Requestor.PageRequestorInterface;
 import disney.reservation.notification.domain.WebPageEssentials.ReservationResolver;
 import disney.reservation.notification.domain.reservations.assemblers.EventAssembler;
@@ -20,7 +19,6 @@ final public class CheckForReservationAndEmail {
 
   public void apply() {
     final InfoLoggerAdapter logger = serviceLocator.getBean(InfoLoggerAdapter.class);
-    final PageRequestorInterface pageRequestor = serviceLocator.getBean(PageRequestorInterface.class);
     final ReservationRepository reservationRepository = serviceLocator
         .getBean(ReservationRepository.class);
     final EventAssembler eventAssembler = serviceLocator.getBean(EventAssembler.class);
@@ -29,13 +27,9 @@ final public class CheckForReservationAndEmail {
     final ReservationResolver reservationResolver = serviceLocator
         .getBean(ReservationResolver.class);
 
-    try {
-      reservationResolver
-          .checkForAvailabilityAndEmail(events, pageRequestor);
+    final PageRequestorInterface pageRequestor = serviceLocator
+        .getBean(PageRequestorInterface.class);
 
-    } catch (Exception e) {
-      logger.info("Exception thrown: " + e.getMessage());
-      e.printStackTrace();
-    }
+    reservationResolver.checkForAvailabilityAndEmail(events, pageRequestor);
   }
 }

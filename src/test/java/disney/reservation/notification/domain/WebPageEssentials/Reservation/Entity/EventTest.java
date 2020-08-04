@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class EventTest {
 
-    private ReservationEvent tester;
+    private Event tester;
 
 
     public void setup() {
@@ -18,7 +18,7 @@ class EventTest {
         Date mockDateImpl = new DateImpl("09/18/2018", "8000029", "4");
         mockDates.add(mockDateImpl);
 
-        ReservationEvent tester = new ReservationEvent();
+        Event tester = new Event();
         tester.url = "http://test.com";
         tester.name = "testing-name--of-reservation";
         tester.dates = mockDates;
