@@ -1,15 +1,14 @@
 package disney.reservation.notification.domain.WebPageEssentials;
 
 
-import com.gargoylesoftware.htmlunit.html.HtmlButton;
+import static java.util.Objects.requireNonNull;
+import static java.util.Optional.ofNullable;
+
 import com.gargoylesoftware.htmlunit.html.HtmlInput;
 import com.gargoylesoftware.htmlunit.html.HtmlOption;
 import com.gargoylesoftware.htmlunit.html.HtmlSelect;
 import disney.reservation.notification.domain.WebPageEssentials.Reference.HtmlElementReferrer;
-import disney.reservation.notification.domain.WebPageEssentials.Requestor.PageRequestor;
 import disney.reservation.notification.domain.WebPageEssentials.Requestor.PageRequestorInterface;
-import disney.reservation.notification.domain.WebPageEssentials.Reservation.Entity.ReservationEvent;
-import disney.reservation.notification.domain.WebPageEssentials.Reservation.Entity.ValueObject.Date;
 import disney.reservation.notification.domain.log.Logger;
 import disney.reservation.notification.domain.mail.Mailer;
 import disney.reservation.notification.domain.reservations.value_objects.Event;
@@ -19,13 +18,13 @@ import org.w3c.dom.html.HTMLDivElement;
 
 
 public class ReservationResolverImpl implements ReservationResolver {
-    private Mailer mailer;
-    private HtmlElementReferrer htmlElementReferrer;
-    private Logger logger;
+
+    private final Mailer mailer;
+    private final HtmlElementReferrer htmlElementReferrer;
+    private final Logger logger;
 
 
-    public ReservationResolverImpl(Mailer mailer,
-        HtmlElementReferrer htmlElementReferrer,
+    public ReservationResolverImpl(Mailer mailer, HtmlElementReferrer htmlElementReferrer,
         Logger logger) {
         this.mailer = mailer;
         this.htmlElementReferrer = htmlElementReferrer;
@@ -33,129 +32,110 @@ public class ReservationResolverImpl implements ReservationResolver {
     }
 
 
-    public void checkForAvailabilityAndEmail(List<Event> reservationEvents,
-        PageRequestorInterface requestor) throws Exception {
-//
-//        for (ReservationEvent event : reservationEvents) {
-//
-//            this.tryToConnectToEventsWebpage(requestor, event);
-//
-//            for (Date date : event.dates) { //@todo: what if there are no dates - throw an exception - or ensure that it won't happen.
-//                this.setDateFieldForReservation(requestor, date);
-//
-//                this.setTimeFieldForReservation(requestor, date);
-//
-//                this.setPartySizeForReservation(requestor, date);
-//
-//                this.submitForm(requestor);
-//
-//                try {
-//                    //@todo: troubleshooting right here, some reason there is an issue with validating a return.
-//                    this.sendMessage(this.getReservationIfAvailable(requestor));
-//
-//                } catch (Exception e) {
-//                    this.infoLoggerAdapter.info("NO, current availabilities around: "
-//                            + "\n Reservation Name: " + event.name
-//                            + "\n Event Date: " + date.getDate()
-//                            + "\n Event Time: " + date.getTime()
-//                            + "\n Seating: " + date.getSeating());
-//                } finally {
-//                    requestor.close();
-//                }
-//            }
-//        }
+    public void checkForAvailabilityAndEmail(List<Event> events, PageRequestorInterface requestor) {
+        events.forEach(event -> {
+            this.tryToConnectToEventsWebpage(requestor, event.getUrl());
+            this.setDateFieldForReservation(requestor, event.getDate());
+            this.setTimeFieldForReservation(requestor, event.getTime());
+            this.setPartySizeForReservation(requestor, event.getPartySize());
+            this.submitForm(requestor);
+
+            try {
+                this.sendMessage(ofNullable(
+                    requireNonNull(getReservationIfAvailable(requestor)).getTextContent())
+                    .orElse("Issue with getting the title on the reservation"));
+
+            } catch (Exception e) {
+                this.logger.info("NO, current availabilities around: "
+                    + "\n Reservation Name: " + event.getName()
+                    + "\n Event Date: " + event.getDate()
+                    + "\n Event Time: " + event.getTime()
+                    + "\n Seating: " + event.getPartySize());
+            } finally {
+                requestor.close();
+            }
+        });
     }
 
-
-    /**
-     * @param requestor
-     * @param event
-     */
-    private void tryToConnectToEventsWebpage(PageRequestor requestor, ReservationEvent event)
-        throws Exception {
+    private void tryToConnectToEventsWebpage(PageRequestorInterface requestor, String url) {
         try {
-            requestor.visitWebPage(event.url);
+            requestor.visitWebPage(url);
         } catch (IOException exception) {
-            throw new Exception("WebClient issue with connecting to: " + event.url);
+            logger.info("WebClient issue with connecting to: ".concat(url));
         }
     }
 
+    private void setDateFieldForReservation(PageRequestorInterface requestor, String date) {
+        try {
+            final HtmlInput dateCalendarField = (HtmlInput) requestor
+                .getElementByXPath(this.htmlElementReferrer.DATE_ID_XPATH);
+            dateCalendarField.setValueAttribute(date);
+        } catch (Exception e) {
+            logger.info("WebClient issue with getting date field: ".concat(e.getMessage()));
+        }
+    }
 
-    /**
-     * Set the date calendar field
-     *
-     * @param requestor
-     * @param date
-     */
-    private void setDateFieldForReservation(PageRequestor requestor, Date date) throws Exception {
-        HtmlInput dateCalendarField = (HtmlInput) requestor.getElementByXPath(this.htmlElementReferrer.DATE_ID_XPATH);
-        dateCalendarField.setValueAttribute(date.getDate());
+    private void setTimeFieldForReservation(PageRequestorInterface requestor, String time) {
+        try {
+            final HtmlSelect timeSelectField = (HtmlSelect) requestor
+                .getElementByXPath(this.htmlElementReferrer.TIME_ID_XPATH);
+            final HtmlOption option = timeSelectField.getOptionByValue(time);
+            timeSelectField.setSelectedAttribute(option, true);
+        } catch (Exception e) {
+            logger.info("WebClient issue with getting time field: ".concat(e.getMessage()));
+        }
+    }
+
+    private void setPartySizeForReservation(PageRequestorInterface requestor, int partySize) {
+        try {
+            final HtmlSelect partySizeSelectField = (HtmlSelect) requestor
+                .getElementByXPath(this.htmlElementReferrer.PARTY_SIZE_XPATH);
+            final HtmlOption partySizeOption = partySizeSelectField
+                .getOptionByValue(Integer.toString(partySize));
+            partySizeSelectField.setSelectedAttribute(partySizeOption, true);
+        } catch (Exception e) {
+            logger.info("WebClient issue with getting partySize field: ".concat(e.getMessage()));
+        }
+    }
+
+    private void submitForm(PageRequestorInterface requestor) {
+        try {
+            requestor.getElementById(this.htmlElementReferrer.SEARCH_TIME_BTN_ID)
+                .click();
+        } catch (Exception e) {
+            logger.info("WebClient issue with submitting the form");
+        }
     }
 
     /**
-     * Set the Time for the reservation.
-     *
-     * @param requestor
-     * @param date
-     */
-    private void setTimeFieldForReservation(PageRequestor requestor, Date date) throws Exception {
-        HtmlSelect timeSelectField = (HtmlSelect) requestor.getElementByXPath(this.htmlElementReferrer.TIME_ID_XPATH);
-        HtmlOption option = timeSelectField.getOptionByValue(date.getTime());
-        timeSelectField.setSelectedAttribute(option, true);
-    }
-
-    /**
-     * Party Size Drop down field
-     *
-     * @param requestor
-     * @param date
-     */
-    private void setPartySizeForReservation(PageRequestor requestor, Date date) throws Exception {
-        HtmlSelect partySizeSelectField = (HtmlSelect) requestor.getElementByXPath(this.htmlElementReferrer.PARTY_SIZE_XPATH);
-        HtmlOption partySizeOption = partySizeSelectField.getOptionByValue(date.getSeating());
-        partySizeSelectField.setSelectedAttribute(partySizeOption, true);
-    }
-
-    /**
-     * @param requestor
-     * @throws IOException
-     */
-    private void submitForm(PageRequestor requestor) throws Exception {
-        HtmlButton findTableButton = (HtmlButton) requestor.getElementById(this.htmlElementReferrer.SEARCH_TIME_BTN_ID);
-        findTableButton.click();
-    }
-
-    /**
-     * Wait 10 seconds for the page load, then check to see if the dining reservation info title div is set, if it is
-     * than we know we can set a reservation.
+     * Wait 10 seconds for the page load, then check to see if the dining reservation info title div
+     * is set, if it is than we know we can set a reservation.
      *
      * @param requestor
      * @return
      */
-    private HTMLDivElement getReservationIfAvailable(PageRequestor requestor) throws Exception {
-//        requestor.waitInSeconds(10);
-        String firstAvailableElementXpath = this.htmlElementReferrer.FIRST_AVAILABLE_TIME_ELEMENT_ID;
-        HTMLDivElement diningReservationInfoTitleDiv = (HTMLDivElement) requestor.getElementById(firstAvailableElementXpath);
-
-        if (diningReservationInfoTitleDiv != null) {
-            return diningReservationInfoTitleDiv;
-        } else {
-            throw new Exception("no reservation potential for: ");
+    private HTMLDivElement getReservationIfAvailable(PageRequestorInterface requestor) {
+        final String firstAvailableElementXpath = htmlElementReferrer.FIRST_AVAILABLE_TIME_ELEMENT_ID;
+        try {
+            final HTMLDivElement diningReservationInfoTitleDiv = (HTMLDivElement) requestor
+                .getElementById(firstAvailableElementXpath);
+            if (diningReservationInfoTitleDiv != null) {
+                return diningReservationInfoTitleDiv;
+            } else {
+                logger.info("Issue with getting the dining reservation info title div!!");
+            }
+        } catch (Exception e) {
+            logger.info(
+                "Issue getting the dining reservation info title div: ".concat(e.getMessage()));
         }
+        return null;
     }
 
-    /**
-     * Send the message out.
-     *
-     * @param diningReservationInfoTitleDiv
-     * @throws Exception
-     */
-    private void sendMessage(HTMLDivElement diningReservationInfoTitleDiv) throws Exception {
-        this.logger.info(
-            "ReservationEntity potential alert: " + diningReservationInfoTitleDiv.getTextContent());
-        this.mailer
-            .setSubjectAndBody("ReservationEntity potential alert: ",
-                "For the day and time: " + diningReservationInfoTitleDiv.getTextContent());
-        this.mailer.sendMessage();
+    private void sendMessage(String title) throws Exception {
+        logger.info("ReservationEntity potential alert: ".concat(title));
+        mailer.setSubjectAndBody("ReservationEntity potential alert: ",
+            "For the day and time: ".concat(title)
+        );
+        mailer.sendMessage();
     }
 }
