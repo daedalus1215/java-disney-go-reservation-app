@@ -8,5 +8,5 @@ import java.util.List;
 public interface ReservationResolver {
 
     void checkForAvailabilityAndEmail(List<Event> reservationEvents,
-        PageRequestorInterface requestor) throws Exception;
+        PageRequestorInterface requestor);
 }
