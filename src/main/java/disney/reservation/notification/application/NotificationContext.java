@@ -20,8 +20,9 @@ import disney.reservation.notification.domain.reservations.assemblers.EventAssem
 import disney.reservation.notification.domain.reservations.assemblers.EventAssemblerFactory;
 import disney.reservation.notification.domain.utils.DateDifference;
 import disney.reservation.notification.domain.utils.GetNextDate;
-import disney.reservation.notification.infrastructure.log.InfoLoggerAdapter;
-import disney.reservation.notification.infrastructure.mail.MailerAdapter;
+import disney.reservation.notification.infrastructure.log.FileLogger;
+import disney.reservation.notification.infrastructure.log.SystemLogger;
+import disney.reservation.notification.infrastructure.mail.LogMailer;
 import disney.reservation.notification.infrastructure.mongo.MongoDatabaseConnectionFactory;
 import disney.reservation.notification.infrastructure.reservations.ReservationRepository;
 import java.io.IOException;
@@ -40,7 +41,9 @@ public class NotificationContext {
 
     @Bean
     public Logger registerLoggerAdapter() {
-        return new InfoLoggerAdapter();
+
+//        return new FileLogger();
+        return new SystemLogger();
     }
 
     @Bean
@@ -85,10 +88,12 @@ public class NotificationContext {
 
     @Bean
     public Mailer createMailer() throws MessagingException, IOException {
-        AppConfig appConfig = registerAppConfig();
-        return new MailerAdapter(appConfig.getDatabaseUser(),
-            appConfig.getDbPassword(),
-            appConfig.getRecipient());
+        //@TODO: Could make this toggle-able, based on if this is dev environment.
+//        AppConfig appConfig = registerAppConfig();
+//        return new GmailMailer(appConfig.getDatabaseUser(),
+//            appConfig.getDbPassword(),
+//            appConfig.getRecipient());
+        return new LogMailer();
     }
 
     @Bean("disney.reservation.notification.domain.WebPageEssentials.Reservation.DataMapper.ReservationDataMapperImpl")

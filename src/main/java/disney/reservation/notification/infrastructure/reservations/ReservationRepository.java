@@ -34,7 +34,7 @@ public class ReservationRepository implements Repository<Reservation> {
     return new Reservation(
         document.getString("name"),
         document.getString("url"),
-        document.getDouble("partySize").intValue(),
+        document.getInteger("partySize"),
         document.getString("startDate"),
         document.getString("endDate"),
         document.getString("time")

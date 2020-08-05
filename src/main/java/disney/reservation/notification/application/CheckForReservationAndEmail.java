@@ -2,9 +2,9 @@ package disney.reservation.notification.application;
 
 import disney.reservation.notification.domain.WebPageEssentials.Requestor.PageRequestorInterface;
 import disney.reservation.notification.domain.WebPageEssentials.ReservationResolver;
+import disney.reservation.notification.domain.log.Logger;
 import disney.reservation.notification.domain.reservations.assemblers.EventAssembler;
 import disney.reservation.notification.domain.reservations.value_objects.Event;
-import disney.reservation.notification.infrastructure.log.InfoLoggerAdapter;
 import disney.reservation.notification.infrastructure.reservations.ReservationRepository;
 import java.util.List;
 import org.springframework.context.ApplicationContext;
@@ -18,7 +18,7 @@ final public class CheckForReservationAndEmail {
   }
 
   public void apply() {
-    final InfoLoggerAdapter logger = serviceLocator.getBean(InfoLoggerAdapter.class);
+    System.out.println("CheckForReservationAndEmail: main.java");
     final ReservationRepository reservationRepository = serviceLocator
         .getBean(ReservationRepository.class);
     final EventAssembler eventAssembler = serviceLocator.getBean(EventAssembler.class);

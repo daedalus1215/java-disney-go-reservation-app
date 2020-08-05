@@ -33,6 +33,7 @@ public class ReservationResolverImpl implements ReservationResolver {
 
 
     public void checkForAvailabilityAndEmail(List<Event> events, PageRequestorInterface requestor) {
+        System.out.println("ReservationResolverImpl.checkForAvailabilityAndEmail");
         events.forEach(event -> {
             this.tryToConnectToEventsWebpage(requestor, event.getUrl());
             this.setDateFieldForReservation(requestor, event.getDate());

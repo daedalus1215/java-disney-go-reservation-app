@@ -3,19 +3,19 @@ package disney.reservation.notification.domain.utils;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-import disney.reservation.notification.infrastructure.log.InfoLoggerAdapter;
+import disney.reservation.notification.infrastructure.log.FileLogger;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class DateDifferenceTest {
 
-  private InfoLoggerAdapter mockLogger;
+  private FileLogger mockLogger;
   private DateDifference target;
 
   @BeforeEach
   public void setup() {
-    mockLogger = mock(InfoLoggerAdapter.class);
+    mockLogger = mock(FileLogger.class);
     target = new DateDifference(mockLogger);
   }
 

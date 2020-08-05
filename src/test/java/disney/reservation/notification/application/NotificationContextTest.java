@@ -9,7 +9,6 @@ import disney.reservation.notification.domain.log.Logger;
 import disney.reservation.notification.domain.reservations.assemblers.EventAssembler;
 import disney.reservation.notification.domain.utils.DateDifference;
 import disney.reservation.notification.domain.utils.GetNextDate;
-import disney.reservation.notification.infrastructure.log.InfoLoggerAdapter;
 import disney.reservation.notification.infrastructure.reservations.ReservationRepository;
 import java.io.IOException;
 import org.junit.jupiter.api.Test;

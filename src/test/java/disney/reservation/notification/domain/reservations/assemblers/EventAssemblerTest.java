@@ -7,7 +7,7 @@ import disney.reservation.notification.domain.reservations.entities.Reservation;
 import disney.reservation.notification.domain.reservations.value_objects.Event;
 import disney.reservation.notification.domain.utils.DateDifference;
 import disney.reservation.notification.domain.utils.GetNextDate;
-import disney.reservation.notification.infrastructure.log.InfoLoggerAdapter;
+import disney.reservation.notification.infrastructure.log.FileLogger;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,8 +24,8 @@ class EventAssemblerTest {
   @BeforeEach
   public void setup() {
     // @TODO: I probs should create a NullLoggerAdapter. No need to use the real one straight.
-    final DateDifference dateDifference = new DateDifference(new InfoLoggerAdapter());
-    final GetNextDate getNextDate = new GetNextDate(new InfoLoggerAdapter());
+    final DateDifference dateDifference = new DateDifference(new FileLogger());
+    final GetNextDate getNextDate = new GetNextDate(new FileLogger());
     this.target = new EventAssembler(dateDifference, getNextDate);
   }
 
