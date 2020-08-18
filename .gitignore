@@ -6,3 +6,4 @@ public/dist/*
 target/*
 .idea/*
 src/main/resources/app.properties
+test-output/*
