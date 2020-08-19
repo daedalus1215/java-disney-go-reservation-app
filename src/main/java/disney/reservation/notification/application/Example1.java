@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -36,13 +37,31 @@ public class Example1 {
         .elementToBeClickable((By.xpath(htmlElementReferrer.DINING_RESERVATION_DATE_XPATH))));
 
     try {
-      final WebElement element = this.driver
+      final WebElement date = this.driver
           .findElementByXPath(htmlElementReferrer.DINING_RESERVATION_DATE_XPATH);
+      ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", date);
+      Thread.sleep(1000);
 
       this.driver.executeScript(
-          "document.querySelector(" + htmlElementReferrer.DATE_SELECTOR + ").value = '10/10/2020';",
-          element);
-      Thread.sleep(500);
+          "document.querySelector(" + htmlElementReferrer.DATE_SELECTOR + ").value = '10/17/2020';",
+          date);
+      Thread.sleep(1000);
+
+      //@TODO: Having an issue setting the Time and Date, the drop downs are giving me an issue.
+      final WebElement time = this.driver.findElementByXPath(htmlElementReferrer.TIME_ID_XPATH);
+
+      final Select timeSelect = new Select(time);
+      timeSelect.selectByVisibleText("2:30 PM");
+//      this.driver.executeScript(
+//          "document.querySelector(" + htmlElementReferrer.TIME_SELECTOR + ").value = '14:30';",
+//          time);
+      Thread.sleep(1000);
+
+      final WebElement party = this.driver.findElementByXPath(htmlElementReferrer.PARTY_SIZE_XPATH);
+      this.driver.executeScript(
+          "document.querySelector(" + htmlElementReferrer.PARTY_SELECTOR + ").value = '1';",
+          party);
+      Thread.sleep(1000);
 
       //@TODO: 1. Need to make references for all fields
       //@TODO: 1.1. Make sure we can touch all fields
