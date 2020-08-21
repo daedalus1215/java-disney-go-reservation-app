@@ -4,7 +4,7 @@ import static disney.reservation.notification.domain.lumber_price.HtmlElementRef
 import static disney.reservation.notification.domain.lumber_price.HtmlElementReferrer.PRODUCE_TITLE_CSS_PATH;
 
 import disney.reservation.notification.domain.log.Logger;
-import disney.reservation.notification.domain.mail.Mailer;
+import disney.reservation.notification.infrastructure.mail.MailerProxy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -14,12 +14,14 @@ import org.testng.annotations.Test;
 
 public class FetchLumberPriceAndNotify {
 
-  private final String baseUrl = "https://www.lumberliquidators.com/ll/c/Select-Brazilian-Pecan-Solid-Hardwood-Flooring-BELLAWOOD-BWBP2SV/10046136";
+  private final static String BASE_URL = "https://www.lumberliquidators.com/ll/c/Select-Brazilian-Pecan-Solid-Hardwood-Flooring-BELLAWOOD-BWBP2SV/10046136";
+  private final static int TEN_SECONDS = 10;
+
   private final RemoteWebDriver driver;
   private final Logger logger;
-  private final Mailer mailer;
+  private final MailerProxy mailer;
 
-  public FetchLumberPriceAndNotify(RemoteWebDriver driver, Logger logger, Mailer mailer) {
+  public FetchLumberPriceAndNotify(RemoteWebDriver driver, Logger logger, MailerProxy mailer) {
     this.driver = driver;
     this.logger = logger;
     this.mailer = mailer;
@@ -27,10 +29,10 @@ public class FetchLumberPriceAndNotify {
 
   @Test(groups = {"lumber"})
   public void apply() {
-    this.driver.get(baseUrl);
+    this.driver.get(BASE_URL);
     this.driver.manage().window().maximize();
 
-    final WebDriverWait webDriverWait = new WebDriverWait(this.driver, 10);
+    final WebDriverWait webDriverWait = new WebDriverWait(this.driver, TEN_SECONDS);
 
     webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(PRICE_CSS_PATH)));
 
@@ -44,7 +46,17 @@ public class FetchLumberPriceAndNotify {
         .concat("\n with price: ")
         .concat(priceValue));
 
-    this.driver.close();
-//    mailer.setSubjectAndBody("Price on the Brazilian");
+    try {
+      mailer.send(title, priceValue);
+    } catch (Exception e) {
+      logger.info("Error sending out a message: "
+          .concat(title)
+          .concat("\n")
+          .concat(priceValue)
+          .concat("\n--")
+          .concat(e.getMessage()));
+    } finally {
+      this.driver.close();
+    }
   }
 }

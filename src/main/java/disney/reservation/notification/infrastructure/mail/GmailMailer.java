@@ -1,6 +1,5 @@
 package disney.reservation.notification.infrastructure.mail;
 
-import disney.reservation.notification.domain.mail.Mailer;
 import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -9,7 +8,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class GmailMailer implements Mailer {
+public class GmailMailer {
 
     private MimeMessage message;
     private Session session;
@@ -38,10 +37,11 @@ public class GmailMailer implements Mailer {
         message.addRecipient(Message.RecipientType.TO, toAddress[0]);
     }
 
-    public void setSubjectAndBody(String subject, String body) throws MessagingException {
+    public GmailMailer setSubjectAndBody(String subject, String body) throws MessagingException {
         message.setSubject(subject);
         message.setText(body);
         isSubjectAndTextSet = true;
+        return this;
     }
 
     public void sendMessage() throws Exception {
