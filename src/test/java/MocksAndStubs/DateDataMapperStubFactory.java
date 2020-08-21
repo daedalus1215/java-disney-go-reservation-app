@@ -1,8 +1,8 @@
 package MocksAndStubs;
 
-import disney.reservation.notification.domain.WebPageEssentials.Reservation.Date.DataMapper.DateDataMapper;
-import disney.reservation.notification.domain.WebPageEssentials.Reservation.Entity.ValueObject.Date;
-import disney.reservation.notification.domain.WebPageEssentials.Reservation.Entity.ValueObject.DateImpl;
+import disney.reservation.notification.infrastructure.WebPageEssentials.Reservation.Date.DataMapper.DateDataMapper;
+import disney.reservation.notification.infrastructure.WebPageEssentials.Reservation.Entity.ValueObject.Date;
+import disney.reservation.notification.infrastructure.WebPageEssentials.Reservation.Entity.ValueObject.DateImpl;
 import org.json.simple.JSONObject;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;

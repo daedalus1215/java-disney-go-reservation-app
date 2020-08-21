@@ -5,8 +5,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import disney.reservation.notification.domain.reservations.entities.Reservation;
 import disney.reservation.notification.domain.reservations.value_objects.Event;
-import disney.reservation.notification.domain.utils.DateDifference;
-import disney.reservation.notification.domain.utils.GetNextDate;
+import disney.reservation.notification.domain.reservations.utils.DateDifference;
+import disney.reservation.notification.domain.reservations.utils.GetNextDate;
 import disney.reservation.notification.infrastructure.log.FileLogger;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;

@@ -6,8 +6,9 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import disney.reservation.notification.domain.WebPageEssentials.Requestor.PageRequestorInterface;
-import disney.reservation.notification.domain.WebPageEssentials.ReservationResolver;
+import disney.reservation.notification.application.reservations.CheckForReservationAndEmail;
+import disney.reservation.notification.infrastructure.WebPageEssentials.Requestor.PageRequestorInterface;
+import disney.reservation.notification.infrastructure.WebPageEssentials.ReservationResolver;
 import disney.reservation.notification.domain.log.Logger;
 import disney.reservation.notification.domain.reservations.assemblers.EventAssembler;
 import disney.reservation.notification.domain.reservations.entities.Reservation;

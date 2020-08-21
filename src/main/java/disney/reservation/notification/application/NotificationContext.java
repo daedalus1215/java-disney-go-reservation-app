@@ -4,23 +4,22 @@ import com.gargoylesoftware.htmlunit.WebClient;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
 import config.AppConfig;
-import disney.reservation.notification.domain.WebPageEssentials.Reference.HtmlElementReferrer;
-import disney.reservation.notification.domain.WebPageEssentials.Requestor.PageRequestor;
-import disney.reservation.notification.domain.WebPageEssentials.Requestor.PageRequestorInterface;
-import disney.reservation.notification.domain.WebPageEssentials.Reservation.DataMapper.Parser.ReservationParser;
-import disney.reservation.notification.domain.WebPageEssentials.Reservation.DataMapper.Parser.ReservationParserImpl;
-import disney.reservation.notification.domain.WebPageEssentials.Reservation.DataMapper.ReservationDataMapper;
-import disney.reservation.notification.domain.WebPageEssentials.Reservation.DataMapper.ReservationDataMapperImpl;
-import disney.reservation.notification.domain.WebPageEssentials.Reservation.Date.DataMapper.DateDataMapperImpl;
-import disney.reservation.notification.domain.WebPageEssentials.ReservationResolver;
-import disney.reservation.notification.domain.WebPageEssentials.ReservationResolverImpl;
+import disney.reservation.notification.infrastructure.WebPageEssentials.Reference.HtmlElementReferrer;
+import disney.reservation.notification.infrastructure.WebPageEssentials.Requestor.PageRequestor;
+import disney.reservation.notification.infrastructure.WebPageEssentials.Requestor.PageRequestorInterface;
+import disney.reservation.notification.infrastructure.WebPageEssentials.Reservation.DataMapper.Parser.ReservationParser;
+import disney.reservation.notification.infrastructure.WebPageEssentials.Reservation.DataMapper.Parser.ReservationParserImpl;
+import disney.reservation.notification.infrastructure.WebPageEssentials.Reservation.DataMapper.ReservationDataMapper;
+import disney.reservation.notification.infrastructure.WebPageEssentials.Reservation.DataMapper.ReservationDataMapperImpl;
+import disney.reservation.notification.infrastructure.WebPageEssentials.Reservation.Date.DataMapper.DateDataMapperImpl;
+import disney.reservation.notification.infrastructure.WebPageEssentials.ReservationResolver;
+import disney.reservation.notification.infrastructure.WebPageEssentials.ReservationResolverImpl;
 import disney.reservation.notification.domain.log.Logger;
 import disney.reservation.notification.domain.mail.Mailer;
 import disney.reservation.notification.domain.reservations.assemblers.EventAssembler;
 import disney.reservation.notification.domain.reservations.assemblers.EventAssemblerFactory;
-import disney.reservation.notification.domain.utils.DateDifference;
-import disney.reservation.notification.domain.utils.GetNextDate;
-import disney.reservation.notification.infrastructure.log.FileLogger;
+import disney.reservation.notification.domain.reservations.utils.DateDifference;
+import disney.reservation.notification.domain.reservations.utils.GetNextDate;
 import disney.reservation.notification.infrastructure.log.SystemLogger;
 import disney.reservation.notification.infrastructure.mail.LogMailer;
 import disney.reservation.notification.infrastructure.mongo.MongoDatabaseConnectionFactory;
@@ -96,7 +95,7 @@ public class NotificationContext {
         return new LogMailer();
     }
 
-    @Bean("disney.reservation.notification.domain.WebPageEssentials.Reservation.DataMapper.ReservationDataMapperImpl")
+    @Bean("disney.reservation.notification.infrastructure.WebPageEssentials.Reservation.DataMapper.ReservationDataMapperImpl")
     public ReservationDataMapper ReservationDataMapperImpl() {
         Logger logger = applicationContext.getBean(Logger.class, "Logger");
         ReservationParser parser = new ReservationParserImpl(logger);

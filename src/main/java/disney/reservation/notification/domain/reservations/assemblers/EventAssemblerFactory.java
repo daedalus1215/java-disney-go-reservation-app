@@ -1,7 +1,7 @@
 package disney.reservation.notification.domain.reservations.assemblers;
 
-import disney.reservation.notification.domain.utils.DateDifference;
-import disney.reservation.notification.domain.utils.GetNextDate;
+import disney.reservation.notification.domain.reservations.utils.DateDifference;
+import disney.reservation.notification.domain.reservations.utils.GetNextDate;
 import org.springframework.beans.factory.FactoryBean;
 
 public class EventAssemblerFactory implements FactoryBean<EventAssembler> {

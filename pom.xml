@@ -19,7 +19,7 @@
                     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
                     <source>1.8</source>
                     <target>1.8</target>
-                    <mainClass>disney.reservation.notification.application.Sample</mainClass>
+                    <mainClass>disney.reservation.notification.application.reservations.Sample</mainClass>
                 </configuration>
             </plugin>
 
@@ -33,7 +33,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>disney.reservation.notification.application.Sample</mainClass>
+                            <mainClass>disney.reservation.notification.application.reservations.Sample</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

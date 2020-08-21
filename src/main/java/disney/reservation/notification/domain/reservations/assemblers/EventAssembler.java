@@ -5,8 +5,8 @@ import static java.util.stream.IntStream.rangeClosed;
 
 import disney.reservation.notification.domain.reservations.entities.Reservation;
 import disney.reservation.notification.domain.reservations.value_objects.Event;
-import disney.reservation.notification.domain.utils.DateDifference;
-import disney.reservation.notification.domain.utils.GetNextDate;
+import disney.reservation.notification.domain.reservations.utils.DateDifference;
+import disney.reservation.notification.domain.reservations.utils.GetNextDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
