@@ -6,20 +6,18 @@ import org.springframework.beans.factory.FactoryBean;
 
 public class EventAssemblerFactory implements FactoryBean<EventAssembler> {
 
-  final private DateDifference dateDifference;
-  final private GetNextDate getNextDate;
+  private final DateDifference dateDifference;
+  private final GetNextDate getNextDate;
 
   public EventAssemblerFactory(DateDifference dateDifference, GetNextDate getNextDate) {
     this.dateDifference = dateDifference;
     this.getNextDate = getNextDate;
   }
 
-  @Override
-  public EventAssembler getObject() throws Exception {
+  public EventAssembler getObject() {
     return new EventAssembler(dateDifference, getNextDate);
   }
 
-  @Override
   public Class<?> getObjectType() {
     return null;
   }

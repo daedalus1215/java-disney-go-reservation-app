@@ -13,7 +13,6 @@ public class FileLogger implements disney.reservation.notification.domain.log.Lo
         logger = Logger.getLogger("InfoLogging");
 
         try {
-            // configure the logger with handler and formatter
             fileHandler = new FileHandler("C:\\temp\\LogFile.log", true);
             logger.addHandler(fileHandler);
             SimpleFormatter formatter = new SimpleFormatter();
@@ -23,12 +22,7 @@ public class FileLogger implements disney.reservation.notification.domain.log.Lo
             e.printStackTrace();
         }
     }
-
-    /**
-     * Log the message.
-     *
-     * @param message
-     */
+    
     public void info(String message) {
         logger.info(message);
     }

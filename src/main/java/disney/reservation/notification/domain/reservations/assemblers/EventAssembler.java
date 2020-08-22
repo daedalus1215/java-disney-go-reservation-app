@@ -4,18 +4,17 @@ import static java.util.stream.Collectors.toList;
 import static java.util.stream.IntStream.rangeClosed;
 
 import disney.reservation.notification.domain.reservations.entities.Reservation;
-import disney.reservation.notification.domain.reservations.value_objects.Event;
 import disney.reservation.notification.domain.reservations.utils.DateDifference;
 import disney.reservation.notification.domain.reservations.utils.GetNextDate;
+import disney.reservation.notification.domain.reservations.valueobjects.Event;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
 
-public class EventAssembler implements
-    Function<List<Reservation>, List<Event>> {
+public class EventAssembler implements Function<List<Reservation>, List<Event>> {
 
-  final private DateDifference dateDifference;
-  final private GetNextDate getNextDate;
+  private final DateDifference dateDifference;
+  private final GetNextDate getNextDate;
 
   public EventAssembler(
       DateDifference dateDifference, GetNextDate getNextDate) {
@@ -32,10 +31,9 @@ public class EventAssembler implements
 
   /**
    * Take a Reservation and turn it into multiple Events.
-   *
    * @param reservation Reservation that came from the database
    * @return a list of Events, one event per day, where the day is some day between the startDate
-   * (including) and the endDate (including)
+   *      (including) and the endDate (including)
    */
   private List<Event> assembleEvents(Reservation reservation) {
     final String startDate = reservation.getStartDate();

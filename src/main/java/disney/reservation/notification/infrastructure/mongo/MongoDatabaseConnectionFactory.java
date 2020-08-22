@@ -15,7 +15,7 @@ public class MongoDatabaseConnectionFactory implements FactoryBean<MongoClient> 
 
   @Override
   public MongoClient getObject() {
-    final String mongoURL = "mongodb://"
+    final String mongoUrl = "mongodb://"
         .concat(appConfig.getDatabaseUser())
         .concat(":")
         .concat(appConfig.getDbPassword())
@@ -25,7 +25,7 @@ public class MongoDatabaseConnectionFactory implements FactoryBean<MongoClient> 
         .concat(appConfig.getDbPort())
         .concat("/admin");
 
-    return new MongoClient(new MongoClientURI(mongoURL));
+    return new MongoClient(new MongoClientURI(mongoUrl));
   }
 
   @Override

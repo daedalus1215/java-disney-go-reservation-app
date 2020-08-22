@@ -1,12 +1,12 @@
-package disney.reservation.notification.domain.reservations.value_objects;
+package disney.reservation.notification.domain.reservations.valueobjects;
 
-final public class Event {
+public final class Event {
 
-  final private String name;
-  final private String url;
-  final private int partySize;
-  final private String date;
-  final private String time;
+  private final String name;
+  private final String url;
+  private final int partySize;
+  private final String date;
+  private final String time;
 
   public Event(String name, String url, int partySize, String date, String time) {
     this.name = name;

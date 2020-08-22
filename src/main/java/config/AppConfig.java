@@ -1,18 +1,27 @@
 package config;
 
+import static java.util.Objects.requireNonNull;
+import static java.util.Optional.of;
+
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Objects;
 import java.util.Properties;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Configuration file for the App.
+ */
 @Configuration
 public final class AppConfig {
-    final private String PROPERTY_FILE = "app.properties";
-    final private String RESOURCE_DIRECTORY = Objects.requireNonNull(Thread.currentThread()
-        .getContextClassLoader()
-        .getResource(""))
-        .getPath();
+
+    private static final String PROPERTY_FILE = "app.properties";
+    @SuppressWarnings("NullPointerException")
+    private static final String RESOURCE_DIRECTORY = of(
+         requireNonNull(Thread.currentThread()
+              .getContextClassLoader()
+              .getResource(""))
+              .getPath())
+         .orElse("");
 
     final Properties appProps = new Properties();
 

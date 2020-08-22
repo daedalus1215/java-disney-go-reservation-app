@@ -1,4 +1,4 @@
-package disney.reservation.notification.application.lumber_price;
+package disney.reservation.notification.application.lumber;
 
 import org.testng.TestNG;
 
