@@ -8,11 +8,8 @@ import disney.reservation.notification.application.lumber.PriceExpression;
 import disney.reservation.notification.domain.log.Logger;
 import disney.reservation.notification.infrastructure.mail.MailerProxy;
 import java.math.BigDecimal;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 public class FetchLumberPriceAndNotify {
@@ -38,9 +35,8 @@ public class FetchLumberPriceAndNotify {
   public void apply() throws Exception {
     this.driver.get(BASE_URL);
 
-    final WebDriverWait webDriverWait = new WebDriverWait(this.driver, TEN_SECONDS);
-
-//    webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(PRICE_CSS_PATH)));
+    //final WebDriverWait webDriverWait = new WebDriverWait(this.driver, TEN_SECONDS);
+    //webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(PRICE_CSS_PATH)));
 
     final WebElement priceWidget = driver.findElementByCssSelector(PRICE_CSS_PATH);
     final String priceWidgetValue = priceWidget.getText();

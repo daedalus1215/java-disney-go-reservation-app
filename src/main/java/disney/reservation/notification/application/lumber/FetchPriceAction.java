@@ -4,7 +4,6 @@ import config.AppConfig;
 import disney.reservation.notification.domain.lumber.FetchLumberPriceAndNotify;
 import disney.reservation.notification.infrastructure.log.SystemLogger;
 import disney.reservation.notification.infrastructure.mail.MailerProxy;
-import java.io.IOException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
