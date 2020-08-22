@@ -1,17 +1,23 @@
 package disney.reservation.notification.application.lumber;
 
+import static java.util.regex.Pattern.compile;
+
+import java.math.BigDecimal;
 import java.util.function.Function;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-public class DecimalExpression implements Function<String, Integer> {
+public class DecimalExpression implements Function<String, BigDecimal> {
 
-    public Integer apply(final String priceValue) {
-        final Matcher matcher = Pattern.compile("[0-9].[0-9]+|[0-9]+").matcher(priceValue);
-        if (matcher.find()) {
-            final String group = matcher.group();
-            return Integer.getInteger(group);
-        }
-        return null;
+  private static final String DECIMAL_EXPRESSION = "[0-9].[0-9]+|[0-9]+";
+
+  public BigDecimal apply(final String priceWithDollar) {
+    final Matcher matcher = compile(DECIMAL_EXPRESSION)
+        .matcher(priceWithDollar);
+
+    if (matcher.find()) {
+      final String group = matcher.group();
+      return new BigDecimal(group);
     }
+    return null;
+  }
 }
