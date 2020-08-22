@@ -5,9 +5,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.math.BigDecimal;
 import org.junit.jupiter.api.Test;
 
-class DecimalExpressionUnitTest {
+class PriceExpressionUnitTest {
 
-  private final DecimalExpression target = new DecimalExpression();
+  private final PriceExpression target = new PriceExpression();
 
   @Test
   public void apply_withPriceString_willReturnDecimal() {

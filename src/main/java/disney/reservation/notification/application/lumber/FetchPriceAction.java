@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 public class FetchPriceAction {
 
   @Test(groups = {"lumber"})
-  public void apply() throws IOException {
+  public void apply() throws Exception {
     final ChromeDriver driver = new ChromeDriver();
     final SystemLogger logger = new SystemLogger();
     //final LogMailer logMailer = new LogMailer();
@@ -21,6 +21,7 @@ public class FetchPriceAction {
     final MailerProxy mailerProxy = new MailerProxy(appConfig.getEmailUsername(),
         appConfig.getEmailPassword(), appConfig.getRecipient());
 
-    new FetchLumberPriceAndNotify(driver, logger, mailerProxy).apply();
+    new FetchLumberPriceAndNotify(driver, logger, mailerProxy)
+        .apply();
   }
 }

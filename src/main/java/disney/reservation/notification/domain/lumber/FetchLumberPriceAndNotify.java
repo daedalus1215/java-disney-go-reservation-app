@@ -3,7 +3,8 @@ package disney.reservation.notification.domain.lumber;
 import static disney.reservation.notification.domain.lumber.HtmlElementReferrer.PRICE_CSS_PATH;
 import static disney.reservation.notification.domain.lumber.HtmlElementReferrer.PRODUCE_TITLE_CSS_PATH;
 
-import disney.reservation.notification.application.lumber.DecimalExpression;
+import com.google.common.annotations.VisibleForTesting;
+import disney.reservation.notification.application.lumber.PriceExpression;
 import disney.reservation.notification.domain.log.Logger;
 import disney.reservation.notification.infrastructure.mail.MailerProxy;
 import java.math.BigDecimal;
@@ -16,7 +17,8 @@ import org.testng.annotations.Test;
 
 public class FetchLumberPriceAndNotify {
 
-  private static final String BASE_URL = "https://www.lumberliquidators.com/ll/c/Select-Brazilian-Pecan-Solid-Hardwood-Flooring-BELLAWOOD-BWBP2SV/10046136";
+  @VisibleForTesting
+  static final String BASE_URL = "https://www.lumberliquidators.com/ll/c/Select-Brazilian-Pecan-Solid-Hardwood-Flooring-BELLAWOOD-BWBP2SV/10046136";
   private static final int TEN_SECONDS = 10;
   private static final Double THRESH_HOLD = 3.50;
 
@@ -24,7 +26,7 @@ public class FetchLumberPriceAndNotify {
   private final Logger logger;
   private final MailerProxy mailer;
 
-  private final DecimalExpression decimalExpression = new DecimalExpression();
+  private final PriceExpression priceExpression = new PriceExpression();
 
   public FetchLumberPriceAndNotify(RemoteWebDriver driver, Logger logger, MailerProxy mailer) {
     this.driver = driver;
@@ -35,11 +37,10 @@ public class FetchLumberPriceAndNotify {
   @Test(groups = {"lumber"})
   public void apply() throws Exception {
     this.driver.get(BASE_URL);
-    this.driver.manage().window().maximize();
 
     final WebDriverWait webDriverWait = new WebDriverWait(this.driver, TEN_SECONDS);
 
-    webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(PRICE_CSS_PATH)));
+//    webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(PRICE_CSS_PATH)));
 
     final WebElement priceWidget = driver.findElementByCssSelector(PRICE_CSS_PATH);
     final String priceWidgetValue = priceWidget.getText();
@@ -51,7 +52,7 @@ public class FetchLumberPriceAndNotify {
         .concat("\n with price: ")
         .concat(priceWidgetValue));
 
-    final BigDecimal price = decimalExpression.apply(priceWidgetValue);
+    final BigDecimal price = priceExpression.apply(priceWidgetValue);
 
     if (price.doubleValue() < THRESH_HOLD) {
       mailer.send(title, priceWidgetValue);
