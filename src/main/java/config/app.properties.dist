@@ -1,0 +1,13 @@
+# Database
+dbUser=admin-user
+dbPassword=admin-password
+db=reservations
+dbHost=localhost
+dbPort=27018
+
+# Email details to send out the message
+emailUsername=emailAccount
+emailPassword=emailPassword
+
+# Phone number or Email address for the recipient
+recipient=verizonPhoneNumber@vzwpix.com

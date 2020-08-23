@@ -5,12 +5,11 @@ import disney.reservation.notification.domain.lumber.FetchLumberPriceAndNotify;
 import disney.reservation.notification.infrastructure.log.SystemLogger;
 import disney.reservation.notification.infrastructure.mail.MailerProxy;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.Test;
 
 public class FetchPriceAction {
 
-  @Test(groups = {"lumber"})
   public void apply() throws Exception {
+    System.out.println("FetchPriceAction");
     final ChromeDriver driver = new ChromeDriver();
     final SystemLogger logger = new SystemLogger();
     //final LogMailer logMailer = new LogMailer();

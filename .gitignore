@@ -7,3 +7,4 @@ target/*
 .idea/*
 src/main/resources/app.properties
 test-output/*
+src/main/java/config/app.properties
