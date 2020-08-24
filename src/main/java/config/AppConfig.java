@@ -12,9 +12,12 @@ public final class AppConfig {
 
     final Properties appProps = new Properties();
 
+    /**
+     * @TODO: Explain what I am doing here, the relevance if you were to pull the project down and run from scratch.
+     * @throws IOException
+     */
     public AppConfig() throws IOException {
-        this.appProps
-            .load(Thread.currentThread().getContextClassLoader().getResourceAsStream("app.properties"));
+        this.appProps.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("app.properties"));
     }
 
     public String getDatabaseUser() {
